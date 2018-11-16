@@ -1,0 +1,3 @@
+module DinoGame(SW, LEDR);
+
+endmodule
