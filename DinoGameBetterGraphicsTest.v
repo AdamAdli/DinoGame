@@ -35,7 +35,7 @@
 `define GAME_OVER_WAIT_2    4'b0100  // We split this to avoid race issue between flipping bits causing weird momentary states.
 
 /* Dinosaur Verilog Game */
-module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
+module DinoGameBetterGraphicsTest(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
         output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
         output VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N,
         output [9:0] VGA_R, VGA_G, VGA_B);

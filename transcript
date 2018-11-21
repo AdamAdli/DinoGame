@@ -1,0 +1,65 @@
+# Reading C:/Intel/FPGA/17.0/modelsim_ase/tcl/vsim/pref.tcl
+pwd
+# E:/Development/Verilog/DinoGame
+do score.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:52 on Nov 21,2018
+# vlog -reportprogress 300 -timescale 1ns/1ns DinoGame.v 
+# -- Compiling module DinoGame
+# -- Compiling module GameLogic
+# -- Compiling module GamePixelRenderer
+# -- Compiling module GameScoreCounter
+# -- Compiling module GameScoreView
+# -- Compiling module GameControl
+# 
+# Top level modules:
+# 	DinoGame
+# End time: 18:43:52 on Nov 21,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim GameScoreCounter 
+# Start time: 18:43:53 on Nov 21,2018
+# Loading work.GameScoreCounter
+do score.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:44:17 on Nov 21,2018
+# vlog -reportprogress 300 -timescale 1ns/1ns DinoGame.v 
+# -- Compiling module DinoGame
+# -- Compiling module GameLogic
+# -- Compiling module GamePixelRenderer
+# -- Compiling module GameScoreCounter
+# -- Compiling module GameScoreView
+# -- Compiling module GameControl
+# 
+# Top level modules:
+# 	DinoGame
+# End time: 18:44:17 on Nov 21,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:44:18 on Nov 21,2018, Elapsed time: 0:00:25
+# Errors: 0, Warnings: 0
+# vsim GameScoreCounter 
+# Start time: 18:44:18 on Nov 21,2018
+# Loading work.GameScoreCounter
+do score.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:38 on Nov 21,2018
+# vlog -reportprogress 300 -timescale 1ns/1ns DinoGame.v 
+# -- Compiling module DinoGame
+# -- Compiling module GameLogic
+# -- Compiling module GamePixelRenderer
+# -- Compiling module GameScoreCounter
+# -- Compiling module GameScoreView
+# -- Compiling module GameControl
+# 
+# Top level modules:
+# 	DinoGame
+# End time: 18:45:38 on Nov 21,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:45:39 on Nov 21,2018, Elapsed time: 0:01:21
+# Errors: 0, Warnings: 0
+# vsim GameScoreCounter 
+# Start time: 18:45:39 on Nov 21,2018
+# Loading work.GameScoreCounter
+# End time: 18:46:59 on Nov 21,2018, Elapsed time: 0:01:20
+# Errors: 0, Warnings: 0

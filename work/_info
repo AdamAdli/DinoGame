@@ -1,0 +1,142 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Development/Verilog/DinoGame
+vDinoGame
+Z1 !s110 1542843938
+!i10b 1
+!s100 eEL0DDe7GeO^CoE^17<7W2
+IC[ecc?6Rhk^momBPdM`Z31
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1542839503
+Z4 8DinoGame.v
+Z5 FDinoGame.v
+L0 37
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1542843938.000000
+Z8 !s107 DinoGame.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|DinoGame.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+n@dino@game
+vGameControl
+R1
+!i10b 1
+!s100 le?nW50C`0h3:l:OOP0A32
+I4[V7gAaAD>9ZATU8LgGal3
+R2
+R0
+R3
+R4
+R5
+L0 221
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@game@control
+vGameLogic
+R1
+!i10b 1
+!s100 8X?93hkIOjL6KI]YNA8YM0
+I2R@zE4:E[gXW<K@JT]YmF2
+R2
+R0
+R3
+R4
+R5
+L0 86
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@game@logic
+vGamePixelRenderer
+R1
+!i10b 1
+!s100 8:0R:6k`fjF`48?5YTA0f2
+IST=@a]E0aZKoIR3Xa@ZTj2
+R2
+R0
+R3
+R4
+R5
+L0 154
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@game@pixel@renderer
+vGameScoreCounter
+R1
+!i10b 1
+!s100 bRLBl3IgDkGLUd`_?19ig0
+I_lBc`QC_Cg3aHjS`KaCBd3
+R2
+R0
+R3
+R4
+R5
+L0 176
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@game@score@counter
+vGameScoreView
+R1
+!i10b 1
+!s100 D8l>Kf6<5[?0AbF4@=9f`3
+Io4TNF[e[515h`H^oi>9j[2
+R2
+R0
+R3
+R4
+R5
+L0 211
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@game@score@view
