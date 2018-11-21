@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DinoGame
-Tue Nov 20 22:03:10 2018
+Wed Nov 21 17:16:57 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -64,13 +64,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Nov 20 22:03:10 2018       ;
+; Analysis & Synthesis Status     ; Successful - Wed Nov 21 17:16:57 2018       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DinoGame                                    ;
 ; Top-level Entity Name           ; DinoGame                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 136                                         ;
+; Total registers                 ; 135                                         ;
 ; Total pins                      ; 82                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 57,600                                      ;
@@ -194,12 +194,12 @@ agreement for further details.
 +--------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path     ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                             ; Library ;
 +--------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------+---------+
+; DinoGame.v                           ; yes             ; User Verilog HDL File                  ; E:/Development/Verilog/DinoGame/DinoGame.v                               ;         ;
 ; Util.v                               ; yes             ; User Verilog HDL File                  ; E:/Development/Verilog/DinoGame/Util.v                                   ;         ;
 ; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; E:/Development/Verilog/DinoGame/vga_adapter/vga_pll.v                    ;         ;
 ; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File                  ; E:/Development/Verilog/DinoGame/vga_adapter/vga_controller.v             ;         ;
 ; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; E:/Development/Verilog/DinoGame/vga_adapter/vga_address_translator.v     ;         ;
 ; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; E:/Development/Verilog/DinoGame/vga_adapter/vga_adapter.v                ;         ;
-; DinoGame.v                           ; yes             ; User Verilog HDL File                  ; E:/Development/Verilog/DinoGame/DinoGame.v                               ;         ;
 ; altsyncram.tdf                       ; yes             ; Megafunction                           ; c:/intel/fpga/17.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc                ; yes             ; Megafunction                           ; c:/intel/fpga/17.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                          ; yes             ; Megafunction                           ; c:/intel/fpga/17.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -227,16 +227,16 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 184            ;
+; Estimate of Logic utilization (ALMs needed) ; 183            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 305            ;
+; Combinational ALUT usage for logic          ; 304            ;
 ;     -- 7 input functions                    ; 0              ;
 ;     -- 6 input functions                    ; 61             ;
-;     -- 5 input functions                    ; 43             ;
-;     -- 4 input functions                    ; 79             ;
-;     -- <=3 input functions                  ; 122            ;
+;     -- 5 input functions                    ; 42             ;
+;     -- 4 input functions                    ; 80             ;
+;     -- <=3 input functions                  ; 121            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 136            ;
+; Dedicated logic registers                   ; 135            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 82             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -248,9 +248,9 @@ agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 116            ;
-; Total fan-out                               ; 2013           ;
-; Average fan-out                             ; 3.27           ;
+; Maximum fan-out                             ; 115            ;
+; Total fan-out                               ; 2008           ;
+; Average fan-out                             ; 3.28           ;
 +---------------------------------------------+----------------+
 
 
@@ -259,8 +259,8 @@ agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                      ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |DinoGame                                               ; 305 (3)             ; 136 (0)                   ; 57600             ; 0          ; 82   ; 0            ; |DinoGame                                                                                                ; DinoGame               ; work         ;
-;    |GameControl:gameControl|                            ; 11 (11)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |DinoGame|GameControl:gameControl                                                                        ; GameControl            ; work         ;
+; |DinoGame                                               ; 304 (3)             ; 135 (0)                   ; 57600             ; 0          ; 82   ; 0            ; |DinoGame                                                                                                ; DinoGame               ; work         ;
+;    |GameControl:gameControl|                            ; 10 (10)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |DinoGame|GameControl:gameControl                                                                        ; GameControl            ; work         ;
 ;    |GameLogic:gameLogic|                                ; 160 (72)            ; 78 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |DinoGame|GameLogic:gameLogic                                                                            ; GameLogic              ; work         ;
 ;       |GameScoreCounter:gameScoreCounter|               ; 46 (46)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter                                          ; GameScoreCounter       ; work         ;
 ;       |delay_counter60:rate_div|                        ; 31 (31)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |DinoGame|GameLogic:gameLogic|delay_counter60:rate_div                                                   ; delay_counter60        ; work         ;
@@ -343,7 +343,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 136   ;
+; Total registers                              ; 135   ;
 ; Number of registers using Synchronous Clear  ; 50    ;
 ; Number of registers using Synchronous Load   ; 19    ;
 ; Number of registers using Asynchronous Clear ; 20    ;
@@ -369,24 +369,24 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_hunthousands[1]                           ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |DinoGame|GameLogic:gameLogic|delay_counter60:rate_div|cycle_count[1]                                       ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|delay_counter60:rate_div|cycle_count[10]                                      ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |DinoGame|GamePixelRenderer:gamePixelRenderer|x[7]                                                          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |DinoGame|GamePixelRenderer:gamePixelRenderer|y[6]                                                          ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |DinoGame|GameLogic:gameLogic|delay_counter60:rate_div|cycle_count[16]                                      ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|delay_counter60:rate_div|cycle_count[12]                                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |DinoGame|GamePixelRenderer:gamePixelRenderer|x[0]                                                          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |DinoGame|GamePixelRenderer:gamePixelRenderer|y[2]                                                          ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DinoGame|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                             ;
 ; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |DinoGame|GameLogic:gameLogic|obs1X[5]                                                                      ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|obs2X[0]                                                                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_ones[2]                                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_tens[1]                                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_hundreds[0]                               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_thousands[1]                              ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_tenthousands[2]                           ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|obs1X[1]                                                                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_ones[3]                                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_tens[0]                                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_hundreds[3]                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_thousands[2]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter|s_tenthousands[0]                           ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|frame_counter_skipdyn:frame_cnt_obs|frame_count[3]                            ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|frame_counter_skipdyn:frame_cnt_obs|frame_count[1]                            ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|frame_counter_skip1:frame_cnt|frame_count[1]                                  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GamePixelRenderer:gamePixelRenderer|color[1]                                                      ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|dinoY[3]                                                                      ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|dinoY[5]                                                                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|frame_counter_skipdyn:frame_cnt_obs|frame_count[0]                            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|frame_counter_skip1:frame_cnt|frame_count[3]                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |DinoGame|GamePixelRenderer:gamePixelRenderer|color[0]                                                      ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|dinoY[2]                                                                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DinoGame|GameLogic:gameLogic|dinoY[7]                                                                      ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |DinoGame|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3|result_node[2] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
@@ -994,24 +994,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 136                         ;
+; arriav_ff             ; 135                         ;
 ;     CLR SCLR          ; 10                          ;
 ;     ENA               ; 33                          ;
 ;     ENA CLR SCLR      ; 10                          ;
 ;     ENA SLD           ; 16                          ;
 ;     SCLR              ; 30                          ;
 ;     SLD               ; 3                           ;
-;     plain             ; 34                          ;
-; arriav_lcell_comb     ; 312                         ;
+;     plain             ; 33                          ;
+; arriav_lcell_comb     ; 311                         ;
 ;     arith             ; 79                          ;
 ;         1 data inputs ; 79                          ;
-;     normal            ; 213                         ;
+;     normal            ; 212                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 6                           ;
-;         2 data inputs ; 10                          ;
+;         2 data inputs ; 9                           ;
 ;         3 data inputs ; 12                          ;
-;         4 data inputs ; 79                          ;
-;         5 data inputs ; 43                          ;
+;         4 data inputs ; 80                          ;
+;         5 data inputs ; 42                          ;
 ;         6 data inputs ; 61                          ;
 ;     shared            ; 20                          ;
 ;         0 data inputs ; 2                           ;
@@ -1042,10 +1042,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Nov 20 22:02:53 2018
+    Info: Processing started: Wed Nov 21 17:16:41 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DinoGame -c DinoGame
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 6 design units, including 6 entities, in source file dinogame.v
+    Info (12023): Found entity 1: DinoGame File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
+    Info (12023): Found entity 2: GameLogic File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 86
+    Info (12023): Found entity 3: GamePixelRenderer File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 154
+    Info (12023): Found entity 4: GameScoreCounter File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 176
+    Info (12023): Found entity 5: GameScoreView File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 211
+    Info (12023): Found entity 6: GameControl File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 221
 Info (12021): Found 4 design units, including 4 entities, in source file util.v
     Info (12023): Found entity 1: delay_counter60 File: E:/Development/Verilog/DinoGame/Util.v Line: 2
     Info (12023): Found entity 2: frame_counter_skip1 File: E:/Development/Verilog/DinoGame/Util.v Line: 13
@@ -1059,13 +1066,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_address_translator File: E:/Development/Verilog/DinoGame/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
     Info (12023): Found entity 1: vga_adapter File: E:/Development/Verilog/DinoGame/vga_adapter/vga_adapter.v Line: 78
-Info (12021): Found 6 design units, including 6 entities, in source file dinogame.v
-    Info (12023): Found entity 1: DinoGame File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-    Info (12023): Found entity 2: GameLogic File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 87
-    Info (12023): Found entity 3: GamePixelRenderer File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 154
-    Info (12023): Found entity 4: GameScoreCounter File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 176
-    Info (12023): Found entity 5: GameScoreView File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 211
-    Info (12023): Found entity 6: GameControl File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 221
+Info (12021): Found 1 design units, including 1 entities, in source file dinospriterom.v
+    Info (12023): Found entity 1: dinospriteROM File: E:/Development/Verilog/DinoGame/dinospriteROM.v Line: 40
 Info (12127): Elaborating entity "DinoGame" for the top level hierarchy
 Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 61
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: E:/Development/Verilog/DinoGame/vga_adapter/vga_adapter.v Line: 192
@@ -1118,9 +1120,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_80u File: E:/Development/Verilog/DinoGame/db/altpll_80u.tdf Line: 26
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intel/fpga/17.0/quartus/libraries/megafunctions/altpll.tdf Line: 898
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: E:/Development/Verilog/DinoGame/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "GameControl" for hierarchy "GameControl:gameControl" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 73
-Warning (10036): Verilog HDL or VHDL warning at DinoGame.v(277): object "debug_state_text_signal" assigned a value but never read File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 277
-Info (12128): Elaborating entity "GameLogic" for hierarchy "GameLogic:gameLogic" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 76
+Info (12128): Elaborating entity "GameControl" for hierarchy "GameControl:gameControl" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 72
+Warning (10036): Verilog HDL or VHDL warning at DinoGame.v(269): object "debug_state_text_signal" assigned a value but never read File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 269
+Info (12128): Elaborating entity "GameLogic" for hierarchy "GameLogic:gameLogic" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 75
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(97): truncated value with size 32 to match size of target (1) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 97
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(100): truncated value with size 32 to match size of target (1) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 100
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(107): truncated value with size 32 to match size of target (8) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 107
@@ -1143,21 +1145,11 @@ Warning (10230): Verilog HDL assignment warning at DinoGame.v(192): truncated va
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(195): truncated value with size 32 to match size of target (4) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 195
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(198): truncated value with size 32 to match size of target (4) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 198
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(201): truncated value with size 32 to match size of target (4) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 201
-Info (12128): Elaborating entity "GamePixelRenderer" for hierarchy "GamePixelRenderer:gamePixelRenderer" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 78
+Info (12128): Elaborating entity "GamePixelRenderer" for hierarchy "GamePixelRenderer:gamePixelRenderer" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 77
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(162): truncated value with size 32 to match size of target (8) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 162
 Warning (10230): Verilog HDL assignment warning at DinoGame.v(164): truncated value with size 32 to match size of target (8) File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 164
-Info (12128): Elaborating entity "GameScoreView" for hierarchy "GameScoreView:gameScoreView" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 81
+Info (12128): Elaborating entity "GameScoreView" for hierarchy "GameScoreView:gameScoreView" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 80
 Info (12128): Elaborating entity "hex_decoder" for hierarchy "GameScoreView:gameScoreView|hex_decoder:h0" File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 212
-Warning (12069): Ignored assignment(s) for "LEDR[0]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[1]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[2]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[3]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[4]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[5]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[6]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[7]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[8]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
-Warning (12069): Ignored assignment(s) for "LEDR[9]" because "LEDR" is not a bus or array File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 37
 Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: E:/Development/Verilog/DinoGame/DinoGame.v Line: 39
@@ -1168,17 +1160,17 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: E:/Development/Verilog/DinoGame/db/altpll_80u.tdf Line: 34
     Info: Must be connected
-Info (21057): Implemented 404 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 403 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 78 output pins
-    Info (21061): Implemented 312 logic cells
+    Info (21061): Implemented 311 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
-    Info: Peak virtual memory: 4859 megabytes
-    Info: Processing ended: Tue Nov 20 22:03:10 2018
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:28
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4858 megabytes
+    Info: Processing ended: Wed Nov 21 17:16:57 2018
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:27
 
 
 +------------------------------------------+

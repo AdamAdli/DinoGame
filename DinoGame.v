@@ -34,7 +34,7 @@
 `define GAME_OVER_WAIT_2    4'b0100  // We split this to avoid race issue between flipping bits causing weird momentary states.
 
 /* Dinosaur Verilog Game */
-module DinoGame(input CLOCK_50, input [2:0] KEY, output LEDR,
+module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
         output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
         output VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N,
         output [9:0] VGA_R, VGA_G, VGA_B);
@@ -65,13 +65,12 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output LEDR,
         defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
     wire [3:0] gameState;
-    wire jumpClicked;
     wire `ubyte dinoY, obs1X, obs1H, obs2X, obs2H;
     wire collision;
     wire [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands;
     GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collide(collision),
-        .gameState(gameState), .jumpClicked(jumpClicked));
-    GameLogic gameLogic(.clk(clk), .resetn(resetn), .jumpClicked(jumpClicked), .gameState(gameState),
+        .gameState(gameState));
+    GameLogic gameLogic(.clk(clk), .resetn(resetn), .jump(jump), .gameState(gameState),
         .dinoY(dinoY), .obs1X(obs1X), .obs1H(obs1H), .obs2X(obs2X), .obs2H(obs2H), .collision(collision), 
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
     GamePixelRenderer gamePixelRenderer(.clk(clk), .resetn(resetn), .enable(enableRender), 
@@ -80,15 +79,16 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output LEDR,
     GameScoreView gameScoreView(.s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands), 
         .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
 
-    assign LEDR = (gameState == `GAME_RUNNING);
+    assign LEDR[0] = (gameState == `GAME_RUNNING);
 endmodule
 
 /* Datapath: Sends Signals */
-module GameLogic(input clk, resetn, jumpClicked, input [3:0] gameState, output reg `ubyte dinoY, 
+module GameLogic(input clk, resetn, jump, input [3:0] gameState, output reg `ubyte dinoY, 
     obs1X, obs1H, obs2X, obs2H, output reg collision, output [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
     // Max score is 999999 (6 hex displays) and log2(999999) = 19.93
     reg `ubyte colObsL, colObsR, colObsT;
     reg [2:0] gameSpeed = 1; // TODO: Adjust gamesped.
+    wire shouldJump = (jump && (dinoY == `groundTop - `dinoH));
     
     wire [19:0] c0;
     delay_counter60 rate_div(.clk(clk), .resetn(resetn), .enable(1), .cycle_count(c0));
@@ -119,7 +119,7 @@ module GameLogic(input clk, resetn, jumpClicked, input [3:0] gameState, output r
                 else if (s_hundreds < 5) gameSpeed <= 2;
                 
                 // Jump/Dino Y. This could be improved.
-                if (dinoY == `groundTop - `dinoH) dinoY <= jumpClicked ? dinoY - 20 : dinoY;
+                if (dinoY == `groundTop - `dinoH) dinoY <= shouldJump ? dinoY - 20 : dinoY;
                 else if (dinoY < `groundTop - `dinoH) dinoY <= dinoY + 2;
                 else if (dinoY > `groundTop - `dinoH) dinoY <= `groundTop - `dinoH;
 
@@ -218,9 +218,8 @@ module GameScoreView(input [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tent
 endmodule
 
 /* Controller:  */
-module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gameState, output reg jumpClicked);
+module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gameState);
     reg [3:0] current_state, next_state;
-    reg jumpClickState, nextJumpClickState;
 
     wire startGame = (pause || jump);
 
@@ -241,7 +240,6 @@ module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gam
             `GAME_OVER_WAIT_2: next_state = `GAME_MENU;
             default: next_state = `GAME_MENU;
         endcase
-        nextJumpClickState = jump;
     end
     
     // Output Logic
@@ -259,18 +257,12 @@ module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gam
             `GAME_OVER_WAIT_2: gameState = `GAME_OVER;
             default: gameState = `GAME_MENU;
         endcase
-        jumpClicked = (jumpClickState && (!jump)); 
     end
 
     // Current State Register
     always @(posedge clk) begin
-        if (!resetn) begin
-            current_state <= `GAME_MENU;
-            jumpClickState <= 0;
-        end else begin 
-            current_state <= next_state;
-            jumpClickState <= nextJumpClickState;
-        end
+        if (!resetn) current_state <= `GAME_MENU;
+        else current_state <= next_state;
     end
     
     // TODO: USE THIS FOR DEBUG.
