@@ -1,89 +1,89 @@
-|DinoGame
+|DinoGameBetterGraphicsTest
 CLOCK_50 => clk.IN4
 KEY[0] => jump.IN2
 KEY[1] => pause.IN1
 KEY[2] => resetn.IN4
-LEDR[0] << Equal0.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[0] << GameScoreView:gameScoreView.HEX0
-HEX0[1] << GameScoreView:gameScoreView.HEX0
-HEX0[2] << GameScoreView:gameScoreView.HEX0
-HEX0[3] << GameScoreView:gameScoreView.HEX0
-HEX0[4] << GameScoreView:gameScoreView.HEX0
-HEX0[5] << GameScoreView:gameScoreView.HEX0
-HEX0[6] << GameScoreView:gameScoreView.HEX0
-HEX1[0] << GameScoreView:gameScoreView.HEX1
-HEX1[1] << GameScoreView:gameScoreView.HEX1
-HEX1[2] << GameScoreView:gameScoreView.HEX1
-HEX1[3] << GameScoreView:gameScoreView.HEX1
-HEX1[4] << GameScoreView:gameScoreView.HEX1
-HEX1[5] << GameScoreView:gameScoreView.HEX1
-HEX1[6] << GameScoreView:gameScoreView.HEX1
-HEX2[0] << GameScoreView:gameScoreView.HEX2
-HEX2[1] << GameScoreView:gameScoreView.HEX2
-HEX2[2] << GameScoreView:gameScoreView.HEX2
-HEX2[3] << GameScoreView:gameScoreView.HEX2
-HEX2[4] << GameScoreView:gameScoreView.HEX2
-HEX2[5] << GameScoreView:gameScoreView.HEX2
-HEX2[6] << GameScoreView:gameScoreView.HEX2
-HEX3[0] << GameScoreView:gameScoreView.HEX3
-HEX3[1] << GameScoreView:gameScoreView.HEX3
-HEX3[2] << GameScoreView:gameScoreView.HEX3
-HEX3[3] << GameScoreView:gameScoreView.HEX3
-HEX3[4] << GameScoreView:gameScoreView.HEX3
-HEX3[5] << GameScoreView:gameScoreView.HEX3
-HEX3[6] << GameScoreView:gameScoreView.HEX3
-HEX4[0] << GameScoreView:gameScoreView.HEX4
-HEX4[1] << GameScoreView:gameScoreView.HEX4
-HEX4[2] << GameScoreView:gameScoreView.HEX4
-HEX4[3] << GameScoreView:gameScoreView.HEX4
-HEX4[4] << GameScoreView:gameScoreView.HEX4
-HEX4[5] << GameScoreView:gameScoreView.HEX4
-HEX4[6] << GameScoreView:gameScoreView.HEX4
-HEX5[0] << GameScoreView:gameScoreView.HEX5
-HEX5[1] << GameScoreView:gameScoreView.HEX5
-HEX5[2] << GameScoreView:gameScoreView.HEX5
-HEX5[3] << GameScoreView:gameScoreView.HEX5
-HEX5[4] << GameScoreView:gameScoreView.HEX5
-HEX5[5] << GameScoreView:gameScoreView.HEX5
-HEX5[6] << GameScoreView:gameScoreView.HEX5
-VGA_CLK << vga_adapter:VGA.VGA_CLK
-VGA_HS << vga_adapter:VGA.VGA_HS
-VGA_VS << vga_adapter:VGA.VGA_VS
-VGA_BLANK_N << vga_adapter:VGA.VGA_BLANK
-VGA_SYNC_N << vga_adapter:VGA.VGA_SYNC
-VGA_R[0] << vga_adapter:VGA.VGA_R
-VGA_R[1] << vga_adapter:VGA.VGA_R
-VGA_R[2] << vga_adapter:VGA.VGA_R
-VGA_R[3] << vga_adapter:VGA.VGA_R
-VGA_R[4] << vga_adapter:VGA.VGA_R
-VGA_R[5] << vga_adapter:VGA.VGA_R
-VGA_R[6] << vga_adapter:VGA.VGA_R
-VGA_R[7] << vga_adapter:VGA.VGA_R
-VGA_R[8] << vga_adapter:VGA.VGA_R
-VGA_R[9] << vga_adapter:VGA.VGA_R
-VGA_G[0] << vga_adapter:VGA.VGA_G
-VGA_G[1] << vga_adapter:VGA.VGA_G
-VGA_G[2] << vga_adapter:VGA.VGA_G
-VGA_G[3] << vga_adapter:VGA.VGA_G
-VGA_G[4] << vga_adapter:VGA.VGA_G
-VGA_G[5] << vga_adapter:VGA.VGA_G
-VGA_G[6] << vga_adapter:VGA.VGA_G
-VGA_G[7] << vga_adapter:VGA.VGA_G
-VGA_G[8] << vga_adapter:VGA.VGA_G
-VGA_G[9] << vga_adapter:VGA.VGA_G
-VGA_B[0] << vga_adapter:VGA.VGA_B
-VGA_B[1] << vga_adapter:VGA.VGA_B
-VGA_B[2] << vga_adapter:VGA.VGA_B
-VGA_B[3] << vga_adapter:VGA.VGA_B
-VGA_B[4] << vga_adapter:VGA.VGA_B
-VGA_B[5] << vga_adapter:VGA.VGA_B
-VGA_B[6] << vga_adapter:VGA.VGA_B
-VGA_B[7] << vga_adapter:VGA.VGA_B
-VGA_B[8] << vga_adapter:VGA.VGA_B
-VGA_B[9] << vga_adapter:VGA.VGA_B
+LEDR[0] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= GameScoreView:gameScoreView.HEX0
+HEX0[1] <= GameScoreView:gameScoreView.HEX0
+HEX0[2] <= GameScoreView:gameScoreView.HEX0
+HEX0[3] <= GameScoreView:gameScoreView.HEX0
+HEX0[4] <= GameScoreView:gameScoreView.HEX0
+HEX0[5] <= GameScoreView:gameScoreView.HEX0
+HEX0[6] <= GameScoreView:gameScoreView.HEX0
+HEX1[0] <= GameScoreView:gameScoreView.HEX1
+HEX1[1] <= GameScoreView:gameScoreView.HEX1
+HEX1[2] <= GameScoreView:gameScoreView.HEX1
+HEX1[3] <= GameScoreView:gameScoreView.HEX1
+HEX1[4] <= GameScoreView:gameScoreView.HEX1
+HEX1[5] <= GameScoreView:gameScoreView.HEX1
+HEX1[6] <= GameScoreView:gameScoreView.HEX1
+HEX2[0] <= GameScoreView:gameScoreView.HEX2
+HEX2[1] <= GameScoreView:gameScoreView.HEX2
+HEX2[2] <= GameScoreView:gameScoreView.HEX2
+HEX2[3] <= GameScoreView:gameScoreView.HEX2
+HEX2[4] <= GameScoreView:gameScoreView.HEX2
+HEX2[5] <= GameScoreView:gameScoreView.HEX2
+HEX2[6] <= GameScoreView:gameScoreView.HEX2
+HEX3[0] <= GameScoreView:gameScoreView.HEX3
+HEX3[1] <= GameScoreView:gameScoreView.HEX3
+HEX3[2] <= GameScoreView:gameScoreView.HEX3
+HEX3[3] <= GameScoreView:gameScoreView.HEX3
+HEX3[4] <= GameScoreView:gameScoreView.HEX3
+HEX3[5] <= GameScoreView:gameScoreView.HEX3
+HEX3[6] <= GameScoreView:gameScoreView.HEX3
+HEX4[0] <= GameScoreView:gameScoreView.HEX4
+HEX4[1] <= GameScoreView:gameScoreView.HEX4
+HEX4[2] <= GameScoreView:gameScoreView.HEX4
+HEX4[3] <= GameScoreView:gameScoreView.HEX4
+HEX4[4] <= GameScoreView:gameScoreView.HEX4
+HEX4[5] <= GameScoreView:gameScoreView.HEX4
+HEX4[6] <= GameScoreView:gameScoreView.HEX4
+HEX5[0] <= GameScoreView:gameScoreView.HEX5
+HEX5[1] <= GameScoreView:gameScoreView.HEX5
+HEX5[2] <= GameScoreView:gameScoreView.HEX5
+HEX5[3] <= GameScoreView:gameScoreView.HEX5
+HEX5[4] <= GameScoreView:gameScoreView.HEX5
+HEX5[5] <= GameScoreView:gameScoreView.HEX5
+HEX5[6] <= GameScoreView:gameScoreView.HEX5
+VGA_CLK <= vga_adapter:VGA.VGA_CLK
+VGA_HS <= vga_adapter:VGA.VGA_HS
+VGA_VS <= vga_adapter:VGA.VGA_VS
+VGA_BLANK_N <= vga_adapter:VGA.VGA_BLANK
+VGA_SYNC_N <= vga_adapter:VGA.VGA_SYNC
+VGA_R[0] <= vga_adapter:VGA.VGA_R
+VGA_R[1] <= vga_adapter:VGA.VGA_R
+VGA_R[2] <= vga_adapter:VGA.VGA_R
+VGA_R[3] <= vga_adapter:VGA.VGA_R
+VGA_R[4] <= vga_adapter:VGA.VGA_R
+VGA_R[5] <= vga_adapter:VGA.VGA_R
+VGA_R[6] <= vga_adapter:VGA.VGA_R
+VGA_R[7] <= vga_adapter:VGA.VGA_R
+VGA_R[8] <= vga_adapter:VGA.VGA_R
+VGA_R[9] <= vga_adapter:VGA.VGA_R
+VGA_G[0] <= vga_adapter:VGA.VGA_G
+VGA_G[1] <= vga_adapter:VGA.VGA_G
+VGA_G[2] <= vga_adapter:VGA.VGA_G
+VGA_G[3] <= vga_adapter:VGA.VGA_G
+VGA_G[4] <= vga_adapter:VGA.VGA_G
+VGA_G[5] <= vga_adapter:VGA.VGA_G
+VGA_G[6] <= vga_adapter:VGA.VGA_G
+VGA_G[7] <= vga_adapter:VGA.VGA_G
+VGA_G[8] <= vga_adapter:VGA.VGA_G
+VGA_G[9] <= vga_adapter:VGA.VGA_G
+VGA_B[0] <= vga_adapter:VGA.VGA_B
+VGA_B[1] <= vga_adapter:VGA.VGA_B
+VGA_B[2] <= vga_adapter:VGA.VGA_B
+VGA_B[3] <= vga_adapter:VGA.VGA_B
+VGA_B[4] <= vga_adapter:VGA.VGA_B
+VGA_B[5] <= vga_adapter:VGA.VGA_B
+VGA_B[6] <= vga_adapter:VGA.VGA_B
+VGA_B[7] <= vga_adapter:VGA.VGA_B
+VGA_B[8] <= vga_adapter:VGA.VGA_B
+VGA_B[9] <= vga_adapter:VGA.VGA_B
 
 
-|DinoGame|vga_adapter:VGA
+|DinoGameBetterGraphicsTest|vga_adapter:VGA
 resetn => resetn.IN1
 clock => clock.IN2
 colour[0] => colour[0].IN1
@@ -142,7 +142,7 @@ VGA_SYNC <= vga_controller:controller.VGA_SYNC
 VGA_CLK <= vga_controller:controller.VGA_CLK
 
 
-|DinoGame|vga_adapter:VGA|vga_address_translator:user_input_translator
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|vga_address_translator:user_input_translator
 x[0] => mem_address[0].DATAIN
 x[1] => mem_address[1].DATAIN
 x[2] => mem_address[2].DATAIN
@@ -182,7 +182,7 @@ mem_address[13] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 mem_address[14] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|vga_adapter:VGA|altsyncram:VideoMemory
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|altsyncram:VideoMemory
 wren_a => altsyncram_m6m1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -246,7 +246,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|DinoGame|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -521,7 +521,7 @@ wren_a => decode_7la:decode2.enable
 wren_a => decode_7la:wren_decode_a.enable
 
 
-|DinoGame|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2
 data[0] => w_anode105w[1].IN0
 data[0] => w_anode118w[1].IN1
 data[0] => w_anode126w[1].IN0
@@ -539,7 +539,7 @@ eq[1] <= w_anode118w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode126w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b
 data[0] => w_anode143w[1].IN0
 data[0] => w_anode157w[1].IN1
 data[0] => w_anode166w[1].IN0
@@ -553,7 +553,7 @@ eq[1] <= w_anode157w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode166w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:wren_decode_a
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:wren_decode_a
 data[0] => w_anode105w[1].IN0
 data[0] => w_anode118w[1].IN1
 data[0] => w_anode126w[1].IN0
@@ -571,7 +571,7 @@ eq[1] <= w_anode118w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode126w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3
 data[0] => data0_wire[0].IN0
 data[1] => data0_wire[1].IN0
 data[2] => data0_wire[2].IN0
@@ -594,12 +594,12 @@ sel[1] => data2_wire[0].IN1
 sel[1] => _.IN0
 
 
-|DinoGame|vga_adapter:VGA|vga_pll:mypll
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|vga_pll:mypll
 clock_in => clock_input_bus[0].IN1
 clock_out <= altpll:altpll_component.clk
 
 
-|DinoGame|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
 inclk[0] => altpll_80u:auto_generated.inclk[0]
 inclk[1] => altpll_80u:auto_generated.inclk[1]
 fbin => ~NO_FANOUT~
@@ -660,7 +660,7 @@ fref <= <GND>
 icdrclk <= <GND>
 
 
-|DinoGame|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated
 clk[0] <= generic_pll1.O_OUTCLK
 clk[1] <= <GND>
 clk[2] <= <GND>
@@ -673,7 +673,7 @@ inclk[1] => ~NO_FANOUT~
 locked <= generic_pll1.LOCKED
 
 
-|DinoGame|vga_adapter:VGA|vga_controller:controller
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|vga_controller:controller
 vga_clock => VGA_BLANK~reg0.CLK
 vga_clock => VGA_VS~reg0.CLK
 vga_clock => VGA_HS~reg0.CLK
@@ -803,7 +803,7 @@ VGA_SYNC <= <VCC>
 VGA_CLK <= vga_clock.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+|DinoGameBetterGraphicsTest|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
 x[0] => mem_address[0].DATAIN
 x[1] => mem_address[1].DATAIN
 x[2] => mem_address[2].DATAIN
@@ -843,7 +843,7 @@ mem_address[13] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 mem_address[14] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameControl:gameControl
+|DinoGameBetterGraphicsTest|GameControl:gameControl
 clk => current_state~1.DATAIN
 resetn => current_state.OUTPUTSELECT
 resetn => current_state.OUTPUTSELECT
@@ -869,7 +869,7 @@ gameState[2] <= gameState.DB_MAX_OUTPUT_PORT_TYPE
 gameState[3] <= gameState.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameLogic:gameLogic
+|DinoGameBetterGraphicsTest|GameLogic:gameLogic
 clk => clk.IN3
 resetn => resetn.IN3
 jump => shouldJump.IN1
@@ -944,7 +944,7 @@ s_hunthousands[2] <= GameScoreCounter:gameScoreCounter.s_hunthousands
 s_hunthousands[3] <= GameScoreCounter:gameScoreCounter.s_hunthousands
 
 
-|DinoGame|GameLogic:gameLogic|delay_counter60:rate_div
+|DinoGameBetterGraphicsTest|GameLogic:gameLogic|delay_counter60:rate_div
 clk => cycle_count[0]~reg0.CLK
 clk => cycle_count[1]~reg0.CLK
 clk => cycle_count[2]~reg0.CLK
@@ -1027,7 +1027,7 @@ cycle_count[18] <= cycle_count[18]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cycle_count[19] <= cycle_count[19]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameLogic:gameLogic|frame_counter_skip1:frame_cnt
+|DinoGameBetterGraphicsTest|GameLogic:gameLogic|frame_counter_skip1:frame_cnt
 clk => frame_count[0]~reg0.CLK
 clk => frame_count[1]~reg0.CLK
 clk => frame_count[2]~reg0.CLK
@@ -1046,7 +1046,7 @@ frame_count[2] <= frame_count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 frame_count[3] <= frame_count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameLogic:gameLogic|frame_counter_skipdyn:frame_cnt_obs
+|DinoGameBetterGraphicsTest|GameLogic:gameLogic|frame_counter_skipdyn:frame_cnt_obs
 clk => frame_count[0]~reg0.CLK
 clk => frame_count[1]~reg0.CLK
 clk => frame_count[2]~reg0.CLK
@@ -1073,7 +1073,7 @@ frame_count[2] <= frame_count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 frame_count[3] <= frame_count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter
+|DinoGameBetterGraphicsTest|GameLogic:gameLogic|GameScoreCounter:gameScoreCounter
 clk => s_hunthousands[0]~reg0.CLK
 clk => s_hunthousands[1]~reg0.CLK
 clk => s_hunthousands[2]~reg0.CLK
@@ -1150,45 +1150,9 @@ s_hunthousands[2] <= s_hunthousands[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 s_hunthousands[3] <= s_hunthousands[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GamePixelRenderer:gamePixelRenderer
-clk => color[0]~reg0.CLK
-clk => color[1]~reg0.CLK
-clk => color[2]~reg0.CLK
-clk => y[0]~reg0.CLK
-clk => y[1]~reg0.CLK
-clk => y[2]~reg0.CLK
-clk => y[3]~reg0.CLK
-clk => y[4]~reg0.CLK
-clk => y[5]~reg0.CLK
-clk => y[6]~reg0.CLK
-clk => y[7]~reg0.CLK
-clk => x[0]~reg0.CLK
-clk => x[1]~reg0.CLK
-clk => x[2]~reg0.CLK
-clk => x[3]~reg0.CLK
-clk => x[4]~reg0.CLK
-clk => x[5]~reg0.CLK
-clk => x[6]~reg0.CLK
-clk => x[7]~reg0.CLK
-resetn => x.OUTPUTSELECT
-resetn => x.OUTPUTSELECT
-resetn => x.OUTPUTSELECT
-resetn => x.OUTPUTSELECT
-resetn => x.OUTPUTSELECT
-resetn => x.OUTPUTSELECT
-resetn => x.OUTPUTSELECT
-resetn => x.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => y.OUTPUTSELECT
-resetn => color.OUTPUTSELECT
-resetn => color.OUTPUTSELECT
-resetn => color.OUTPUTSELECT
+|DinoGameBetterGraphicsTest|GamePixelRenderer:gamePixelRenderer
+clk => clk.IN2
+resetn => resetn.IN1
 enable => x.OUTPUTSELECT
 enable => x.OUTPUTSELECT
 enable => x.OUTPUTSELECT
@@ -1208,70 +1172,79 @@ enable => y.OUTPUTSELECT
 enable => color.OUTPUTSELECT
 enable => color.OUTPUTSELECT
 enable => color.OUTPUTSELECT
+gameState => gameState.IN1
 dinoY[0] => LessThan5.IN8
 dinoY[0] => LessThan6.IN56
+dinoY[0] => Add1.IN8
 dinoY[1] => LessThan5.IN7
 dinoY[1] => LessThan6.IN55
+dinoY[1] => Add1.IN7
 dinoY[2] => LessThan5.IN6
-dinoY[2] => Add2.IN12
+dinoY[2] => Add7.IN12
+dinoY[2] => Add1.IN6
 dinoY[3] => LessThan5.IN5
-dinoY[3] => Add2.IN11
+dinoY[3] => Add7.IN11
+dinoY[3] => Add1.IN5
 dinoY[4] => LessThan5.IN4
-dinoY[4] => Add2.IN10
+dinoY[4] => Add7.IN10
+dinoY[4] => Add1.IN4
 dinoY[5] => LessThan5.IN3
-dinoY[5] => Add2.IN9
+dinoY[5] => Add7.IN9
+dinoY[5] => Add1.IN3
 dinoY[6] => LessThan5.IN2
-dinoY[6] => Add2.IN8
+dinoY[6] => Add7.IN8
+dinoY[6] => Add1.IN2
 dinoY[7] => LessThan5.IN1
-dinoY[7] => Add2.IN7
+dinoY[7] => Add7.IN7
+dinoY[7] => Add1.IN1
 obs1X[0] => LessThan7.IN8
 obs1X[0] => LessThan8.IN10
 obs1X[1] => LessThan7.IN7
 obs1X[1] => LessThan8.IN9
 obs1X[2] => LessThan7.IN6
-obs1X[2] => Add3.IN12
+obs1X[2] => Add8.IN12
 obs1X[3] => LessThan7.IN5
-obs1X[3] => Add3.IN11
+obs1X[3] => Add8.IN11
 obs1X[4] => LessThan7.IN4
-obs1X[4] => Add3.IN10
+obs1X[4] => Add8.IN10
 obs1X[5] => LessThan7.IN3
-obs1X[5] => Add3.IN9
+obs1X[5] => Add8.IN9
 obs1X[6] => LessThan7.IN2
-obs1X[6] => Add3.IN8
+obs1X[6] => Add8.IN8
 obs1X[7] => LessThan7.IN1
-obs1X[7] => Add3.IN7
+obs1X[7] => Add8.IN7
 obs1H[0] => LessThan9.IN25
-obs1H[1] => Add4.IN7
-obs1H[2] => Add4.IN6
-obs1H[3] => Add4.IN3
-obs1H[4] => Add4.IN5
-obs1H[5] => Add4.IN2
-obs1H[6] => Add4.IN1
-obs1H[7] => Add4.IN4
+obs1H[1] => Add9.IN7
+obs1H[2] => Add9.IN6
+obs1H[3] => Add9.IN3
+obs1H[4] => Add9.IN5
+obs1H[5] => Add9.IN2
+obs1H[6] => Add9.IN1
+obs1H[7] => Add9.IN4
 obs2X[0] => LessThan10.IN8
 obs2X[0] => LessThan11.IN10
 obs2X[1] => LessThan10.IN7
 obs2X[1] => LessThan11.IN9
 obs2X[2] => LessThan10.IN6
-obs2X[2] => Add5.IN12
+obs2X[2] => Add10.IN12
 obs2X[3] => LessThan10.IN5
-obs2X[3] => Add5.IN11
+obs2X[3] => Add10.IN11
 obs2X[4] => LessThan10.IN4
-obs2X[4] => Add5.IN10
+obs2X[4] => Add10.IN10
 obs2X[5] => LessThan10.IN3
-obs2X[5] => Add5.IN9
+obs2X[5] => Add10.IN9
 obs2X[6] => LessThan10.IN2
-obs2X[6] => Add5.IN8
+obs2X[6] => Add10.IN8
 obs2X[7] => LessThan10.IN1
-obs2X[7] => Add5.IN7
+obs2X[7] => Add10.IN7
 obs2H[0] => LessThan12.IN25
-obs2H[1] => Add6.IN7
-obs2H[2] => Add6.IN6
-obs2H[3] => Add6.IN3
-obs2H[4] => Add6.IN5
-obs2H[5] => Add6.IN2
-obs2H[6] => Add6.IN1
-obs2H[7] => Add6.IN4
+obs2H[1] => Add11.IN7
+obs2H[2] => Add11.IN6
+obs2H[3] => Add11.IN3
+obs2H[4] => Add11.IN5
+obs2H[5] => Add11.IN2
+obs2H[6] => Add11.IN1
+obs2H[7] => Add11.IN4
 x[0] <= x[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 x[1] <= x[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 x[2] <= x[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -1293,7 +1266,119 @@ color[1] <= color[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 color[2] <= color[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameScoreView:gameScoreView
+|DinoGameBetterGraphicsTest|GamePixelRenderer:gamePixelRenderer|DinoController:dinoController
+clk => current_state~1.DATAIN
+resetn => current_state.OUTPUTSELECT
+resetn => current_state.OUTPUTSELECT
+resetn => current_state.OUTPUTSELECT
+gameState[0] => Equal0.IN1
+gameState[1] => Equal0.IN0
+gameState[2] => Equal0.IN3
+gameState[3] => Equal0.IN2
+dinoSpriteAddress[0] <= <GND>
+dinoSpriteAddress[1] <= <GND>
+dinoSpriteAddress[2] <= <GND>
+dinoSpriteAddress[3] <= dinoSpriteAddress[3].DB_MAX_OUTPUT_PORT_TYPE
+dinoSpriteAddress[4] <= WideNor0.DB_MAX_OUTPUT_PORT_TYPE
+dinoSpriteAddress[5] <= WideNor0.DB_MAX_OUTPUT_PORT_TYPE
+dinoSpriteAddress[6] <= WideNor0.DB_MAX_OUTPUT_PORT_TYPE
+dinoSpriteAddress[7] <= dinoSpriteAddress[7].DB_MAX_OUTPUT_PORT_TYPE
+dinoSpriteAddress[8] <= <GND>
+
+
+|DinoGameBetterGraphicsTest|GamePixelRenderer:gamePixelRenderer|dinospriteROM:dinoSprite
+address[0] => address[0].IN1
+address[1] => address[1].IN1
+address[2] => address[2].IN1
+address[3] => address[3].IN1
+address[4] => address[4].IN1
+address[5] => address[5].IN1
+address[6] => address[6].IN1
+address[7] => address[7].IN1
+address[8] => address[8].IN1
+clock => clock.IN1
+q[0] <= altsyncram:altsyncram_component.q_a
+q[1] <= altsyncram:altsyncram_component.q_a
+q[2] <= altsyncram:altsyncram_component.q_a
+
+
+|DinoGameBetterGraphicsTest|GamePixelRenderer:gamePixelRenderer|dinospriteROM:dinoSprite|altsyncram:altsyncram_component
+wren_a => ~NO_FANOUT~
+rden_a => ~NO_FANOUT~
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => ~NO_FANOUT~
+data_a[1] => ~NO_FANOUT~
+data_a[2] => ~NO_FANOUT~
+data_b[0] => ~NO_FANOUT~
+address_a[0] => altsyncram_9ui1:auto_generated.address_a[0]
+address_a[1] => altsyncram_9ui1:auto_generated.address_a[1]
+address_a[2] => altsyncram_9ui1:auto_generated.address_a[2]
+address_a[3] => altsyncram_9ui1:auto_generated.address_a[3]
+address_a[4] => altsyncram_9ui1:auto_generated.address_a[4]
+address_a[5] => altsyncram_9ui1:auto_generated.address_a[5]
+address_a[6] => altsyncram_9ui1:auto_generated.address_a[6]
+address_a[7] => altsyncram_9ui1:auto_generated.address_a[7]
+address_a[8] => altsyncram_9ui1:auto_generated.address_a[8]
+address_b[0] => ~NO_FANOUT~
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_9ui1:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= altsyncram_9ui1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_9ui1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_9ui1:auto_generated.q_a[2]
+q_b[0] <= <GND>
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|DinoGameBetterGraphicsTest|GamePixelRenderer:gamePixelRenderer|dinospriteROM:dinoSprite|altsyncram:altsyncram_component|altsyncram_9ui1:auto_generated
+address_a[0] => ram_block1a0.PORTAADDR
+address_a[0] => ram_block1a1.PORTAADDR
+address_a[0] => ram_block1a2.PORTAADDR
+address_a[1] => ram_block1a0.PORTAADDR1
+address_a[1] => ram_block1a1.PORTAADDR1
+address_a[1] => ram_block1a2.PORTAADDR1
+address_a[2] => ram_block1a0.PORTAADDR2
+address_a[2] => ram_block1a1.PORTAADDR2
+address_a[2] => ram_block1a2.PORTAADDR2
+address_a[3] => ram_block1a0.PORTAADDR3
+address_a[3] => ram_block1a1.PORTAADDR3
+address_a[3] => ram_block1a2.PORTAADDR3
+address_a[4] => ram_block1a0.PORTAADDR4
+address_a[4] => ram_block1a1.PORTAADDR4
+address_a[4] => ram_block1a2.PORTAADDR4
+address_a[5] => ram_block1a0.PORTAADDR5
+address_a[5] => ram_block1a1.PORTAADDR5
+address_a[5] => ram_block1a2.PORTAADDR5
+address_a[6] => ram_block1a0.PORTAADDR6
+address_a[6] => ram_block1a1.PORTAADDR6
+address_a[6] => ram_block1a2.PORTAADDR6
+address_a[7] => ram_block1a0.PORTAADDR7
+address_a[7] => ram_block1a1.PORTAADDR7
+address_a[7] => ram_block1a2.PORTAADDR7
+address_a[8] => ram_block1a0.PORTAADDR8
+address_a[8] => ram_block1a1.PORTAADDR8
+address_a[8] => ram_block1a2.PORTAADDR8
+clock0 => ram_block1a0.CLK0
+clock0 => ram_block1a1.CLK0
+clock0 => ram_block1a2.CLK0
+q_a[0] <= ram_block1a0.PORTADATAOUT
+q_a[1] <= ram_block1a1.PORTADATAOUT
+q_a[2] <= ram_block1a2.PORTADATAOUT
+
+
+|DinoGameBetterGraphicsTest|GameScoreView:gameScoreView
 s_ones[0] => s_ones[0].IN1
 s_ones[1] => s_ones[1].IN1
 s_ones[2] => s_ones[2].IN1
@@ -1362,7 +1447,7 @@ HEX5[5] <= hex_decoder:h5.segments
 HEX5[6] <= hex_decoder:h5.segments
 
 
-|DinoGame|GameScoreView:gameScoreView|hex_decoder:h0
+|DinoGameBetterGraphicsTest|GameScoreView:gameScoreView|hex_decoder:h0
 hex_digit[0] => Decoder0.IN3
 hex_digit[1] => Decoder0.IN2
 hex_digit[2] => Decoder0.IN1
@@ -1376,7 +1461,7 @@ segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameScoreView:gameScoreView|hex_decoder:h1
+|DinoGameBetterGraphicsTest|GameScoreView:gameScoreView|hex_decoder:h1
 hex_digit[0] => Decoder0.IN3
 hex_digit[1] => Decoder0.IN2
 hex_digit[2] => Decoder0.IN1
@@ -1390,7 +1475,7 @@ segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameScoreView:gameScoreView|hex_decoder:h2
+|DinoGameBetterGraphicsTest|GameScoreView:gameScoreView|hex_decoder:h2
 hex_digit[0] => Decoder0.IN3
 hex_digit[1] => Decoder0.IN2
 hex_digit[2] => Decoder0.IN1
@@ -1404,7 +1489,7 @@ segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameScoreView:gameScoreView|hex_decoder:h3
+|DinoGameBetterGraphicsTest|GameScoreView:gameScoreView|hex_decoder:h3
 hex_digit[0] => Decoder0.IN3
 hex_digit[1] => Decoder0.IN2
 hex_digit[2] => Decoder0.IN1
@@ -1418,7 +1503,7 @@ segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameScoreView:gameScoreView|hex_decoder:h4
+|DinoGameBetterGraphicsTest|GameScoreView:gameScoreView|hex_decoder:h4
 hex_digit[0] => Decoder0.IN3
 hex_digit[1] => Decoder0.IN2
 hex_digit[2] => Decoder0.IN1
@@ -1432,7 +1517,7 @@ segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DinoGame|GameScoreView:gameScoreView|hex_decoder:h5
+|DinoGameBetterGraphicsTest|GameScoreView:gameScoreView|hex_decoder:h5
 hex_digit[0] => Decoder0.IN3
 hex_digit[1] => Decoder0.IN2
 hex_digit[2] => Decoder0.IN1
