@@ -16,4 +16,4 @@ force {clk} 0 0ns, 1 5ns -r 10ns
 force {resetn} 0 0ns, 1 10ns
 force {gameState} 4'b0000 0ns, 4'b0001 10ns
 force {incrementEnable} 0 0ns, 1 5ns -r 10ns
-run 240ns
+run 5000ns
