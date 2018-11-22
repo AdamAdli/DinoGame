@@ -10,6 +10,28 @@ module delay_counter60(input clk, resetn, enable, output reg [19:0] cycle_count)
     end
 endmodule
 
+module delay_counterTest(input clk, resetn, enable, output reg [19:0] cycle_count);
+    // 50 Mhz / 60 Hz = 833333
+    always @(posedge clk) begin
+        if (!resetn) cycle_count <= 0;//20'd83333;
+        else if (enable) begin
+            if (cycle_count == 0) cycle_count <= 20'd83333;
+            else cycle_count <= cycle_count - 1'b1; 
+        end
+    end
+endmodule
+
+
+module FrameSkipper(input clk, frameClk, resetn, input [3:0] skipCount, output reg [3:0] frame_count);
+    always @(posedge clk) begin
+        if (!resetn) frame_count <= 0;
+        else if (frameClk) begin
+            if (frame_count == 0) frame_count <= skipCount;
+            else frame_count <= frame_count - 1'b1;
+        end
+    end
+endmodule
+
 module frame_counter_skip1(input clk, resetn, enable, output reg [3:0] frame_count);
     always @(posedge clk) begin
         if (!resetn) frame_count <= 4'd1;

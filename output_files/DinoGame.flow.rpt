@@ -1,5 +1,5 @@
 Flow report for DinoGame
-Wed Nov 21 17:33:43 2018
+Thu Nov 22 14:15:37 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Nov 21 17:33:43 2018       ;
+; Flow Status                     ; Successful - Thu Nov 22 14:15:37 2018       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DinoGame                                    ;
-; Top-level Entity Name           ; DinoGameBetterGraphicsTest                  ;
+; Top-level Entity Name           ; DinoGame                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 176 / 32,070 ( < 1 % )                      ;
-; Total registers                 ; 143                                         ;
+; Logic utilization (in ALMs)     ; 206 / 32,070 ( < 1 % )                      ;
+; Total registers                 ; 139                                         ;
 ; Total pins                      ; 82 / 457 ( 18 % )                           ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 57,606 / 4,065,280 ( 1 % )                  ;
+; Total block memory bits         ; 58,680 / 4,065,280 ( 1 % )                  ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -68,31 +68,30 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/21/2018 17:32:15 ;
+; Start date & time ; 11/22/2018 14:14:09 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DinoGame            ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                           ;
-+-------------------------------------+----------------------------------------+---------------+----------------------------+----------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name                ; Section Id     ;
-+-------------------------------------+----------------------------------------+---------------+----------------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 53350633854081.154283953507892         ; --            ; --                         ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --                         ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --                         ; --             ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --                         ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --                         ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --                         ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DinoGameBetterGraphicsTest ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DinoGameBetterGraphicsTest ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; DinoGameBetterGraphicsTest ; Top            ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --                         ; --             ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --                         ; --             ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --                         ; --             ;
-; TOP_LEVEL_ENTITY                    ; DinoGameBetterGraphicsTest             ; DinoGame      ; --                         ; --             ;
-+-------------------------------------+----------------------------------------+---------------+----------------------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                            ;
++-------------------------------------+----------------------------------------+---------------+-------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
++-------------------------------------+----------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 53350633854081.154291404812200         ; --            ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
++-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -100,12 +99,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 4863 MB             ; 00:00:26                           ;
-; Fitter                    ; 00:00:46     ; 1.0                     ; 6721 MB             ; 00:01:13                           ;
-; Assembler                 ; 00:00:09     ; 1.0                     ; 4847 MB             ; 00:00:09                           ;
-; TimeQuest Timing Analyzer ; 00:00:10     ; 1.2                     ; 5203 MB             ; 00:00:09                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4869 MB             ; 00:00:02                           ;
-; Total                     ; 00:01:22     ; --                      ; --                  ; 00:01:59                           ;
+; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 4864 MB             ; 00:00:26                           ;
+; Fitter                    ; 00:00:50     ; 1.0                     ; 6724 MB             ; 00:01:11                           ;
+; Assembler                 ; 00:00:08     ; 1.0                     ; 4853 MB             ; 00:00:08                           ;
+; TimeQuest Timing Analyzer ; 00:00:09     ; 1.2                     ; 5206 MB             ; 00:00:09                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4871 MB             ; 00:00:02                           ;
+; Total                     ; 00:01:23     ; --                      ; --                  ; 00:01:56                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,15 +1,15 @@
-Fitter Status : Successful - Wed Nov 21 17:33:16 2018
+Fitter Status : Successful - Thu Nov 22 14:15:13 2018
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : DinoGame
-Top-level Entity Name : DinoGameBetterGraphicsTest
+Top-level Entity Name : DinoGame
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 176 / 32,070 ( < 1 % )
-Total registers : 143
+Logic utilization (in ALMs) : 206 / 32,070 ( < 1 % )
+Total registers : 139
 Total pins : 82 / 457 ( 18 % )
 Total virtual pins : 0
-Total block memory bits : 57,606 / 4,065,280 ( 1 % )
+Total block memory bits : 58,680 / 4,065,280 ( 1 % )
 Total RAM Blocks : 9 / 397 ( 2 % )
 Total DSP Blocks : 0 / 87 ( 0 % )
 Total HSSI RX PCSs : 0
