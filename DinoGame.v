@@ -261,7 +261,7 @@ module GameScoreCounter(input clk, resetn, input[3:0] gameState, input increment
             s_tenthousands <= 0;
             s_hunthousands <= 0;
             frameHandled <= 0;
-        end else if (incrementEnable && !frameHandled) begin
+        end else if (incrementEnable && !frameHandled && gameState == `GAME_RUNNING) begin
             frameHandled <= 1;
             s_ones = s_ones + 1;
             if (s_ones == 10) begin
