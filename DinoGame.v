@@ -35,10 +35,8 @@
 `define GAME_OVER_WAIT_2    4'b0100  // We split this to avoid race issue between flipping bits causing weird momentary states.
 
 /* Dinosaur Verilog Game */
-module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
-        output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
-        output VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N,
-        output [9:0] VGA_R, VGA_G, VGA_B);
+module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, 
+		output VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, output [9:0] VGA_R, VGA_G, VGA_B);
 
 	/* Wires */
 	wire clk, jump, pause, resetn;
@@ -46,31 +44,26 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
 	wire collision;
 	wire [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands;
 
+	/* Specific Wires for VGA */
+	wire [2:0] color;
+	wire `ubyte x, y;
+
 	/* Assignment Statements */
 	assign clk = CLOCK_50;
 	assign jump = ~KEY[0]; // Active-High Jump.
 	assign pause = ~KEY[1]; // Active-High Pause.
-	assign resetn = KEY[2]; // Active-Low resetn.
+	assign resetn = KEY[2]; // Active-Low Reset.
 
-	// Create the colour, x, y and writeEn wires that are inputs to the controller.
-	wire [2:0] color;
-	wire `ubyte x, y;
+	/* VGA Display */
+   vga_adapter VGA(.clock(clk), .resetn(resetn), .colour(color), .x(x), .y(y[6:0]), .plot(1), .VGA_R(VGA_R), .VGA_G(VGA_G), 
+		.VGA_B(VGA_B), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_BLANK(VGA_BLANK_N), .VGA_SYNC(VGA_SYNC_N), .VGA_CLK(VGA_CLK));
+		defparam VGA.RESOLUTION = "160x120";
+		defparam VGA.MONOCHROME = "FALSE";
+		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
+      defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
-	/* VGA Crap */
-    vga_adapter VGA(.clock(clk), .resetn(resetn),
-            .colour(color), .x(x), .y(y[6:0]), .plot(1),
-            /* Signals for the DAC to drive the monitor. */
-            .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B),
-            .VGA_HS(VGA_HS), .VGA_VS(VGA_VS),
-            .VGA_BLANK(VGA_BLANK_N), .VGA_SYNC(VGA_SYNC_N), .VGA_CLK(VGA_CLK));
-        defparam VGA.RESOLUTION = "160x120";
-        defparam VGA.MONOCHROME = "FALSE";
-        defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-        defparam VGA.BACKGROUND_IMAGE = "black.mif";
-
-    GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collide(collision),
-        .gameState(gameState));
-    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .jump(jump), .gameState(gameState),
+    GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collide(collision), .gameState(gameState));
+    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState),
         .x(x), .y(y), .color(color),
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
     /*GameLogic gameLogic(.clk(clk), .resetn(resetn), .jump(jump), .gameState(gameState),
@@ -82,11 +75,12 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
     GameScoreView gameScoreView(.s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands), 
         .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
 
-    assign LEDR[0] = (gameState == `GAME_RUNNING);
+	/* Single LEDR is on when game runs */
+	assign LEDR[0] = (gameState == `GAME_RUNNING);
 endmodule
 
 /* Datapath: Sends Signals */
-module GameImplementation(input clk, resetn, jump, input [3:0] gameState, 
+module GameImplementation(input clk, resetn, pause, jump, input [3:0] gameState, 
     // Controller outputs
     output collision, 
     // Visualization outputs
@@ -109,7 +103,7 @@ endmodule
 
 module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, output reg `ubyte dinoY, 
     obs1X, obs1H, obs2X, obs2H, output reg collision, output [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
-    // Max score is 999999 (6 hex displays) and log2(999999) = 19.93
+    
     reg `ubyte colObsL, colObsR, colObsT;
     reg [2:0] gameSpeed = 3'd1; // TODO: Adjust gamesped.
     wire shouldJump = (jump && (dinoY == `groundTop - `dinoH));
@@ -118,6 +112,7 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
     FrameSkipper obstacleFrameSkip(.clk(clk), .frameClk(frameClk), .resetn(resetn), .skipCount({1'b0, 3'd4 - gameSpeed}), .frame_count(c2));
     wire obsClk = (c2 == 0);
 
+	 /* Max score is 999999 (6 Hex Displays) and log2(999999) = 19.93 */
     GameScoreCounter gameScoreCounter(.clk(clk), .resetn(resetn), .gameState(gameState), .incrementEnable(obsClk), 
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
 
