@@ -39,20 +39,24 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
         output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
         output VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N,
         output [9:0] VGA_R, VGA_G, VGA_B);
-    // ~KEY[0] = JUMP, ~KEY[1] = PAUSE, KEY[2] = resetn.
+
 	/* Wires */
 	wire clk, jump, pause, resetn;
-	
+	wire [3:0] gameState;
+	wire collision;
+	wire [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands;
+
 	/* Assignment Statements */
 	assign clk = CLOCK_50;
 	assign jump = ~KEY[0]; // Active-High Jump.
 	assign pause = ~KEY[1]; // Active-High Pause.
 	assign resetn = KEY[2]; // Active-Low resetn.
 
-    // Create the colour, x, y and writeEn wires that are inputs to the controller.
-    wire [2:0] color;
-    wire `ubyte x, y;
+	// Create the colour, x, y and writeEn wires that are inputs to the controller.
+	wire [2:0] color;
+	wire `ubyte x, y;
 
+	/* VGA Crap */
     vga_adapter VGA(.clock(clk), .resetn(resetn),
             .colour(color), .x(x), .y(y[6:0]), .plot(1),
             /* Signals for the DAC to drive the monitor. */
@@ -64,9 +68,6 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR,
         defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
         defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
-    wire [3:0] gameState;
-    wire collision;
-    wire [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands;
     GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collide(collision),
         .gameState(gameState));
     GameImplementation gameImpl(.clk(clk), .resetn(resetn), .jump(jump), .gameState(gameState),
@@ -250,9 +251,12 @@ module DinoController(input clk, frameClk, resetn, input [3:0] gameState, output
     end
 endmodule
 
+/* Score Counter Logic (1-9 Values Only) */
 module GameScoreCounter(input clk, resetn, input[3:0] gameState, input incrementEnable, output reg [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
-    reg frameHandled = 0;
-    always @(posedge clk) begin
+	 reg frameHandled = 0;
+    /* Asynchronous Counting */
+	 always @(posedge clk) begin
+		  /* Begins on Reset or Game Menu */
         if (!resetn || gameState == `GAME_MENU) begin
             s_ones <= 0; 
             s_tens <= 0; 
@@ -261,7 +265,9 @@ module GameScoreCounter(input clk, resetn, input[3:0] gameState, input increment
             s_tenthousands <= 0;
             s_hunthousands <= 0;
             frameHandled <= 0;
-        end else if (incrementEnable && !frameHandled && gameState == `GAME_RUNNING) begin
+        end 
+		  /* Continues only when Game is Running */
+		  else if (incrementEnable && !frameHandled && gameState == `GAME_RUNNING) begin
             frameHandled <= 1;
             s_ones = s_ones + 1;
             if (s_ones == 10) begin
@@ -290,6 +296,7 @@ module GameScoreCounter(input clk, resetn, input[3:0] gameState, input increment
     end
 endmodule  
 
+/* Displays Score On Hexes (1-9 Values Only) */
 module GameScoreView(input [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands, output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
     hex_decoder h0(.hex_digit(s_ones), .segments(HEX0));
     hex_decoder h1(.hex_digit(s_tens), .segments(HEX1));
@@ -299,13 +306,13 @@ module GameScoreView(input [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tent
     hex_decoder h5(.hex_digit(s_hunthousands), .segments(HEX5));
 endmodule
 
-/* Controller:  */
+/* Controller: Finite State Machine  */
 module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gameState);
     reg [3:0] current_state, next_state;
 
     wire startGame = (pause || jump);
 
-    // State Table
+    /* State Table */
     always @(*) begin
         case (current_state)
             `GAME_MENU: next_state = startGame ? `GAME_MENU_WAIT : `GAME_MENU;
@@ -324,7 +331,7 @@ module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gam
         endcase
     end
     
-    // Output Logic
+    /* Output Logic */
     always @(*) begin
         gameState = `GAME_MENU;
         case (current_state)
@@ -341,13 +348,13 @@ module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gam
         endcase
     end
 
-    // Current State Register
+    /* Asynchronous Reset. */
     always @(posedge clk) begin
         if (!resetn) current_state <= `GAME_MENU;
         else current_state <= next_state;
     end
     
-    // TODO: USE THIS FOR DEBUG.
+    /* TODO: USE THIS FOR DEBUGGING */
     reg [8*8-1:0] debug_state_text_signal;
     always @(current_state) begin 
         case(current_state)
