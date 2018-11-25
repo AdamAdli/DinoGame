@@ -132,10 +132,9 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
           
                 
                 // Jump/Dino Y. This could be improved. (Jump needs to be commented out for logic.do).
-					 /*
                 if (dinoY == `groundTop - `dinoH) dinoY <= shouldJump ? dinoY - 20 : dinoY;
                 else if (dinoY < `groundTop - `dinoH) dinoY <= dinoY + 2;
-                else if (dinoY > `groundTop - `dinoH) dinoY <= `groundTop - `dinoH; */
+                else if (dinoY > `groundTop - `dinoH) dinoY <= `groundTop - `dinoH;
 
                 // Collision setup.
                 if (obs1X < obs2X && obs1X >= `dinoLeft - `obsW) begin
@@ -145,13 +144,14 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
                 end else begin
                     colObsL = obs2X;
                     colObsR = obs2X + `obsW;
-                    colObsT = `groundTop - obs2H; 
+                    colObsT = `groundTop - obs2H;
                 end
 
                 // Check collisions.
                 // collision <= 0; //Commented THIS OUT (seems unnecessary?)
                 if ((colObsL >= `dinoLeft && colObsL < `dinoRight) || (colObsR >= `dinoRight && colObsR - 1 < `dinoRight)) begin                 
-                    if (colObsT >= dinoY && colObsT < dinoY + `dinoH) collision <= 1;
+                    //if (colObsT >= dinoY && colObsT < dinoY + `dinoH) collision <= 1; //OLD VERSION
+						  if (colObsT <= dinoY + `dinoH) collision <= 1; // Nick's Maybe Working Ver?
                 end
 
                 // Update Obstacles.

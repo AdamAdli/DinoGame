@@ -9,7 +9,7 @@ z2
 cModel Technology
 dE:/Development/Verilog/DinoGame
 vdelay_counter60
-Z0 !s110 1543117608
+Z0 !s110 1543120303
 !i10b 1
 !s100 ZL;n_?3AJa0iC??GA_3W=0
 IMoe0L732bAC6DaXLLKe[F3
@@ -23,7 +23,7 @@ Z6 OV;L;10.4d;61
 r1
 !s85 0
 31
-Z7 !s108 1543117608.000000
+Z7 !s108 1543120303.000000
 Z8 !s107 Util.v|DinoGame.v|
 Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|DinoGame.v|Util.v|
 !i113 1
@@ -56,7 +56,7 @@ R0
 IXMaQ:9>hV^:lc7E[DJfm@1
 R1
 R2
-Z11 w1543117261
+Z11 w1543120302
 Z12 8DinoGame.v
 Z13 FDinoGame.v
 L0 207
@@ -218,8 +218,8 @@ n@game@implementation
 vGameLogic
 R0
 !i10b 1
-!s100 SBzO3=^MMHM7<XLJW>WOk0
-IT>HjjmO^`So9VGC;?EF130
+!s100 80`W5OTF^<nh^[D:lk[YV0
+IN?[:HEjJVCgVeHoM`ch?<1
 R1
 R2
 R11
