@@ -63,15 +63,13 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0]
       defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
     GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collide(collision), .gameState(gameState));
-    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState),
-        .x(x), .y(y), .color(color),
+    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState), .collision (collision), .x(x), .y(y), .color(color),
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
     /*GameLogic gameLogic(.clk(clk), .resetn(resetn), .jump(jump), .gameState(gameState),
         .dinoY(dinoY), .obs1X(obs1X), .obs1H(obs1H), .obs2X(obs2X), .obs2H(obs2H), .collision(collision), 
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
     GamePixelRenderer gamePixelRenderer(.clk(clk), .resetn(resetn), .enable(enableRender), 
         .x(x), .y(y), .color(color));*/
-
     GameScoreView gameScoreView(.s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands), 
         .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
 
@@ -133,10 +131,11 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
                 else if (s_thousands >= 1) gameSpeed <= 2;
           
                 
-                // Jump/Dino Y. This could be improved.
+                // Jump/Dino Y. This could be improved. (Jump needs to be commented out for logic.do).
+					 /*
                 if (dinoY == `groundTop - `dinoH) dinoY <= shouldJump ? dinoY - 20 : dinoY;
                 else if (dinoY < `groundTop - `dinoH) dinoY <= dinoY + 2;
-                else if (dinoY > `groundTop - `dinoH) dinoY <= `groundTop - `dinoH;
+                else if (dinoY > `groundTop - `dinoH) dinoY <= `groundTop - `dinoH; */
 
                 // Collision setup.
                 if (obs1X < obs2X && obs1X >= `dinoLeft - `obsW) begin
@@ -150,7 +149,7 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
                 end
 
                 // Check collisions.
-                collision <= 0;
+                // collision <= 0; //Commented THIS OUT (seems unnecessary?)
                 if ((colObsL >= `dinoLeft && colObsL < `dinoRight) || (colObsR >= `dinoRight && colObsR - 1 < `dinoRight)) begin                 
                     if (colObsT >= dinoY && colObsT < dinoY + `dinoH) collision <= 1;
                 end

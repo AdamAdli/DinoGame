@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Sat Nov 24 18:01:48 2018
+Analysis & Synthesis Status : Successful - Sat Nov 24 22:42:44 2018
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : DinoGame
 Top-level Entity Name : DinoGame
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 133
+Total registers : 130
 Total pins : 82
 Total virtual pins : 0
 Total block memory bits : 58,680

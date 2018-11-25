@@ -322,4 +322,5 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name MIF_FILE tests/testing_dinosprite8colorflattened2.mif
 set_global_assignment -name MIF_FILE dinosprite8colorflattened.mif
+set_global_assignment -name VERILOG_FILE Collision.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

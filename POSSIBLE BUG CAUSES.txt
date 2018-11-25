@@ -1,0 +1,1 @@
+1. ColObsT = 91 or 98 (91 is less than 93 = DinoY): Lines 143-151.

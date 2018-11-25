@@ -8,37 +8,78 @@ z2
 !i10f 100
 cModel Technology
 dE:/Development/Verilog/DinoGame
-vDinoController
-Z0 !s110 1543101199
+vdelay_counter60
+Z0 !s110 1543117608
 !i10b 1
-!s100 na8EL_<Mg^06WUNmoCa8>3
-I;91d9P4YJC>KbUMlDjN9;2
+!s100 ZL;n_?3AJa0iC??GA_3W=0
+IMoe0L732bAC6DaXLLKe[F3
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/Nick/Desktop/DinoGame
-Z3 w1543100749
-Z4 8DinoGame.v
-Z5 FDinoGame.v
-L0 208
+Z3 w1543014686
+Z4 8Util.v
+Z5 FUtil.v
+L0 2
 Z6 OV;L;10.4d;61
 r1
 !s85 0
 31
-Z7 !s108 1543101199.000000
-Z8 !s107 DinoGame.v|
-Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|DinoGame.v|
+Z7 !s108 1543117608.000000
+Z8 !s107 Util.v|DinoGame.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|DinoGame.v|Util.v|
 !i113 1
 Z10 o-timescale 1ns/1ns
-n@dino@controller
-vDinoGame
+vdelay_counterTest
 R0
 !i10b 1
-!s100 O=jcKm^G?NMJloF@@jTEn1
-ImVnaW2gdRH=0jKj6:Sz>C0
+!s100 13hZEz=D6zDG2VjQN]N6M3
+I8Ez8<BHeg:iQ_D=TA5d<i0
 R1
 R2
 R3
 R4
 R5
+L0 13
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+ndelay_counter@test
+vDinoController
+R0
+!i10b 1
+!s100 U:^L_Ah97X??L6k>0BS>Q3
+IXMaQ:9>hV^:lc7E[DJfm@1
+R1
+R2
+Z11 w1543117261
+Z12 8DinoGame.v
+Z13 FDinoGame.v
+L0 207
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@dino@controller
+vDinoGame
+R0
+!i10b 1
+!s100 l^ma`bSKo?EjPC49=`KeQ0
+I;b0[6:KU2g:b0MzVVGSLi1
+R1
+R2
+R11
+R12
+R13
 L0 38
 R6
 r1
@@ -53,14 +94,14 @@ n@dino@game
 vDinoPixelRenderer
 R0
 !i10b 1
-!s100 eLPX7TQb6GYTgo4oAX<4b2
-IR5fcMfR5R8;iJV9l9:T=b1
+!s100 c;:G=:iM^0K6:ib>Ng]DX2
+ITmm>XbmWhOME?510XmLW_0
 R1
 R2
-R3
-R4
-R5
-L0 194
+R11
+R12
+R13
+L0 193
 R6
 r1
 !s85 0
@@ -71,17 +112,78 @@ R9
 !i113 1
 R10
 n@dino@pixel@renderer
-vGameControl
+vframe_counter_skip1
 R0
 !i10b 1
-!s100 QS7UHFO5FbSQZSObZZea_0
-I4>WYD1YI8IkXZ=aG7DY[f1
+!s100 oHZJchOAij=oS=>B_03^m0
+IJ`XSoBc@oI082X_fLi@Cn3
 R1
 R2
 R3
 R4
 R5
-L0 305
+L0 35
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vframe_counter_skipdyn
+R0
+!i10b 1
+!s100 QW2D2ci4PcC[I[h5N4o?@3
+I`LBWj>:DoFbDMj@15SigC1
+R1
+R2
+R3
+R4
+R5
+L0 45
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vFrameSkipper
+R0
+!i10b 1
+!s100 4gVcFT1NNWbiI0nBUI;;m1
+IYY:V4HzRZSaJUC7EXk1ah3
+R1
+R2
+R3
+R4
+R5
+L0 25
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@frame@skipper
+vGameControl
+R0
+!i10b 1
+!s100 K?]5bP7gBnjzdU_o5W_eY2
+ID2B`a@Uj4ZV6YlZ0N7P4W1
+R1
+R2
+R11
+R12
+R13
+L0 304
 R6
 r1
 !s85 0
@@ -95,14 +197,14 @@ n@game@control
 vGameImplementation
 R0
 !i10b 1
-!s100 ?D<]Qn8d;^;]j1MHcMZ^70
-IH_^`zhWVE5^Hz5@SZkE0d3
+!s100 A>2=GFn@TOniikL3IggD52
+IczCmQ:2;@<IKB?e5GYU@c0
 R1
 R2
-R3
-R4
-R5
-L0 83
+R11
+R12
+R13
+L0 81
 R6
 r1
 !s85 0
@@ -116,14 +218,14 @@ n@game@implementation
 vGameLogic
 R0
 !i10b 1
-!s100 zQX]W;IN1OJHR>9:OB>h=0
-I2f4^X<DX?XLn5zTPI6FSd2
+!s100 SBzO3=^MMHM7<XLJW>WOk0
+IT>HjjmO^`So9VGC;?EF130
 R1
 R2
-R3
-R4
-R5
-L0 104
+R11
+R12
+R13
+L0 102
 R6
 r1
 !s85 0
@@ -137,14 +239,14 @@ n@game@logic
 vGamePixelRenderer
 R0
 !i10b 1
-!s100 DKW5>4>77boA<U1WK^0B62
-I_LZ[kRjVR;o:I0lVjAeM01
+!s100 RAJcG5XJFb_WJ=8A3FAVo2
+I[0bKJSlcA6;6APmSMFbF>2
 R1
 R2
-R3
-R4
-R5
-L0 168
+R11
+R12
+R13
+L0 167
 R6
 r1
 !s85 0
@@ -158,14 +260,14 @@ n@game@pixel@renderer
 vGameScoreCounter
 R0
 !i10b 1
-!s100 AkHDW?]zSj<8V^7ZZ>;hI2
-I5z5;]`M^<i4h^gD8jHAOc1
+!s100 BV9EJJI_>>IQh^RaZP52Q1
+IlaOgAc_XPPYafOcfLIj<72
 R1
 R2
-R3
-R4
-R5
-L0 250
+R11
+R12
+R13
+L0 249
 R6
 r1
 !s85 0
@@ -179,14 +281,14 @@ n@game@score@counter
 vGameScoreView
 R0
 !i10b 1
-!s100 Acikc?a[2a9KYWV^Q5cG42
-IOYD65XP^dmWd8@OHhQgU91
+!s100 NP[W1>]9daTW6l82IFWW;3
+IEz@94=93dE:ga4_RX?;SS0
 R1
 R2
-R3
-R4
-R5
-L0 295
+R11
+R12
+R13
+L0 294
 R6
 r1
 !s85 0
@@ -197,3 +299,23 @@ R9
 !i113 1
 R10
 n@game@score@view
+vhex_decoder
+R0
+!i10b 1
+!s100 faaD2B1zc_f4<FQ;6^XD>1
+I;:][20_R7Q2aS9RTg6oU83
+R1
+R2
+R3
+R4
+R5
+L0 57
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
