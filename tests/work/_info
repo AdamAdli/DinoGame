@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dE:/Development/Verilog/DinoGame/tests
 vdelay_counter60
-Z1 !s110 1543399521
+Z1 !s110 1543401335
 !i10b 1
 !s100 ]_bK]Yb9SWCU<ee:8]3YX2
 I[H]33X1=EUlE_[N6JHM_P3
@@ -23,8 +23,8 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1543399521.000000
-Z8 !s107 ../dinospriteROM.v|../Util.v|../DinoGame.v|
+Z7 !s108 1543401334.000000
+Z8 !s107 ..\.\GameScore.v|..\.\.\DinoGameConstants.v|..\.\DinoPixelRenderer.v|..\.\DinoGameConstants.v|../dinospriteROM.v|../Util.v|../DinoGame.v|
 Z9 !s90 -reportprogress|300|-timescale|1ps/1ps|../DinoGame.v|../Util.v|../dinospriteROM.v|
 !i113 1
 Z10 o-timescale 1ps/1ps
@@ -98,14 +98,14 @@ n@delay@counter30@f@p@s@test
 vDinoController
 R1
 !i10b 1
-!s100 BIJAS7VA9Pn:f>5h8ajd60
-ILYOFSQ]Jh_B9g`60CHh4E0
+!s100 EBg1dNSgNS7MD7Fa@>eJR1
+I;JDWbRC7I`QTlcUJYYKTk3
 R2
 R0
-Z12 w1543399518
-Z13 8../DinoGame.v
-Z14 F../DinoGame.v
-L0 213
+Z12 w1543401319
+Z13 8..\.\DinoPixelRenderer.v
+Z14 F..\.\DinoPixelRenderer.v
+L0 17
 R6
 r1
 !s85 0
@@ -120,14 +120,14 @@ n@dino@controller
 vDinoGame
 R1
 !i10b 1
-!s100 5B:oH79aifI0CMgb^kKLC1
-I=P;M=bEgb>2[nT74@Y0JU3
+!s100 E=I^1LGY0lRaN@fIUI5W30
+IYiL^NjKcch0eMWKZMk[_[3
 R2
 R0
-R12
-R13
-R14
-L0 38
+Z15 w1543401322
+Z16 8../DinoGame.v
+Z17 F../DinoGame.v
+L0 6
 R6
 r1
 !s85 0
@@ -142,14 +142,14 @@ n@dino@game
 vDinoPixelRenderer
 R1
 !i10b 1
-!s100 XO;miDOa1`JAg88_nn_i;2
-Iz<Vo0hCjohB=?;>QJjjJT0
+!s100 Qj`0MP1A4f7mW7R]ohYIQ3
+I^Gji<bi6Q6WS8gIhDgKVS3
 R2
 R0
 R12
 R13
 R14
-L0 199
+L0 3
 R6
 r1
 !s85 0
@@ -250,14 +250,14 @@ n@frame@skipper
 vGameControl
 R1
 !i10b 1
-!s100 fJlE=KPZngEibk;znRH9X3
-IH:<B9IJiGod[MRmaFalDH1
+!s100 _1lm=IVZBQ?mBz_aM4SWX1
+IR`d9hX`neJD^G654Jah_b3
 R2
 R0
-R12
-R13
-R14
-L0 310
+R15
+R16
+R17
+L0 167
 R6
 r1
 !s85 0
@@ -272,14 +272,14 @@ n@game@control
 vGameImplementation
 R1
 !i10b 1
-!s100 Lc[fnd?YN4Zd?Ll[bBbcj2
-I]<JmJgX=1Dl0I?b5Fn=>Q2
+!s100 Ib@U>KHZU7[c^Y43XIgVT1
+IHAl3jm7JlP3XSagP0k7L[0
 R2
 R0
-R12
-R13
-R14
-L0 82
+R15
+R16
+R17
+L0 50
 R6
 r1
 !s85 0
@@ -294,14 +294,14 @@ n@game@implementation
 vGameLogic
 R1
 !i10b 1
-!s100 G3fIDJVfag^YkFONE3Umo3
-I0AFBNhVk2gP:]TajlfZ[R0
+!s100 eR?U]Oma9<[[2Phazhn4W2
+IPlBz;40c[@R<>>ci:LB<i2
 R2
 R0
-R12
-R13
-R14
-L0 103
+R15
+R16
+R17
+L0 71
 R6
 r1
 !s85 0
@@ -316,14 +316,14 @@ n@game@logic
 vGamePixelRenderer
 R1
 !i10b 1
-!s100 64=]B]IbPMVf8mn4EJ@SF3
-I<I0IJ=Ecj6P:XDJ]HbD8S1
+!s100 m46W]J4a_gIzj6>:V>_c]3
+I7bU<Vi^mX87EALSCfDWlQ2
 R2
 R0
-R12
-R13
-R14
-L0 168
+R15
+R16
+R17
+L0 136
 R6
 r1
 !s85 0
@@ -338,14 +338,14 @@ n@game@pixel@renderer
 vGameScoreCounter
 R1
 !i10b 1
-!s100 DKn7L5IJkRSd2N<NUhSNR3
-IRm@DE`C=d60EZ7HBICDFU0
+!s100 ]ERQm6Z1USZoXWCe@OBQV0
+IYA1Ok5Y7DG2B]?AzSGPKW1
 R2
 R0
-R12
-R13
-R14
-L0 255
+Z18 w1543401320
+Z19 8..\.\GameScore.v
+Z20 F..\.\GameScore.v
+L0 4
 R6
 r1
 !s85 0
@@ -360,14 +360,14 @@ n@game@score@counter
 vGameScoreView
 R1
 !i10b 1
-!s100 CSNHNS]X2RkOnB<b6oC223
-IUh@D6N3;Xc9VzF^JmmKAE0
+!s100 L]kSJI`F:3Ib5o::VY4Qe0
+IcTRocj^:31d6dZz:c<cPK2
 R2
 R0
-R12
-R13
-R14
-L0 300
+R18
+R19
+R20
+L0 49
 R6
 r1
 !s85 0

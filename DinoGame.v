@@ -1,38 +1,7 @@
-`define ubyte [7:0] 
-`define uint [31:0]
-
-/* Dimensions */
-`define xMAX 159
-`define yMAX 119
-// `define dinoX 16
-// `define dinoW 10
-`define dinoLeft 15
-`define dinoRight 25
-`define dinoH 12
-`define obsW 12
-`define minObsH 7
-`define maxObsH 14
-
-`define groundTop 105
-
-/* Colors */
-`define colBG 3'b011
-`define colDino 3'b010
-`define colDinoTransparentMask 3'b010
-`define colObs1 3'b100
-`define colObs2 3'b101
-`define colGrnd 3'b110
-
-/* Game States */
-`define GAME_MENU           4'b0000
-`define GAME_MENU_WAIT      4'b0001
-`define GAME_RUNNING        4'b0011
-`define GAME_RUNNING_WAIT   4'b0111
-`define GAME_PAUSE          4'b1111
-`define GAME_PAUSE_WAIT     4'b1011
-`define GAME_OVER           4'b0010
-`define GAME_OVER_WAIT_1    4'b0110
-`define GAME_OVER_WAIT_2    4'b0100  // We split this to avoid race issue between flipping bits causing weird momentary states.
+`include "./Util.v"
+`include "./DinoGameConstants.v"
+`include "./DinoPixelRenderer.v"
+`include "./GameScore.v"
 
 /* Dinosaur Verilog Game */
 module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, 
@@ -81,7 +50,7 @@ endmodule
 /* Datapath: Sends Signals */
 module GameImplementation(input clk, resetn, pause, jump, input [3:0] gameState, 
     // Controller outputs
-    output collision, 
+    output collision,
     // Visualization outputs
     output `ubyte x, y, output [2:0] color, output plotPixel,
     output [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
@@ -89,7 +58,7 @@ module GameImplementation(input clk, resetn, pause, jump, input [3:0] gameState,
     wire `ubyte dinoY, obs1X, obs1H, obs2X, obs2H;    
 
     wire [19:0] c0;
-    DelayCounter30FPSTest rate_div(.clk(clk), .resetn(resetn), .enable(1'd1), .cycle_count(c0));
+    DelayCounterTest rate_div(.clk(clk), .resetn(resetn), .enable(1'd1), .cycle_count(c0));
     wire frameClk = (c0 == 0);
 
     GameLogic gameLogic(.clk(clk), .frameClk(frameClk), .resetn(resetn), .jump(jump), .gameState(gameState),
@@ -183,8 +152,7 @@ module GamePixelRenderer(input clk, frameClk, resetn, enable, input [3:0] gameSt
                     if (y < `yMAX) y <= y + 1;
                     else y <= 0;
                 end
-            end
-            if (plotPixel) begin
+            end else begin
                 color <= `colBG; // Default color is background.
                 if (y >= `groundTop) color <= `colGrnd; // Ground.
                 else if (x >= `dinoLeft && x < `dinoRight  && y >= dinoY && y < dinoY + `dinoH && dinoColor != `colDinoTransparentMask) color <= dinoColor; // Dino    
@@ -194,116 +162,6 @@ module GamePixelRenderer(input clk, frameClk, resetn, enable, input [3:0] gameSt
             plotPixel <= ~plotPixel;
         end
     end
-endmodule
-
-module DinoPixelRenderer(input clk, frameClk, resetn, input `ubyte x, y, input [3:0] gameState, input `ubyte dinoY, output [2:0] color);
-    wire [8:0] dinoSpriteOriginAddress;
-    wire [8:0] dinoSpriteAddress = dinoSpriteOriginAddress + ((x - `dinoLeft) + ((y - dinoY) * 10) + 1); 
-
-    always @(posedge clk ) begin
-        if (x >= `dinoLeft && x < `dinoRight  && y >= dinoY && y < dinoY + `dinoH)
-            $display("%t: x %d y %d dinoSpriteAddress %d color: %b", $time, x, y, dinoSpriteAddress, color);
-    end
-
-    DinoController dinoController(.clk(clk), .frameClk(frameClk), .resetn(resetn), .gameState(gameState), 
-         .dinoSpriteAddress(dinoSpriteOriginAddress));
-    dinospriteROM dinoSprite(.clock(clk), .address(dinoSpriteAddress), .q(color));
-endmodule
-
-module DinoController(input clk, frameClk, resetn, input [3:0] gameState, output reg [8:0] dinoSpriteAddress);    
-    reg [1:0] current_state, next_state;
-    localparam DINO_STANDING = 0, DINO_RUNNING_1 = 1, DINO_RUNNING_2 = 2;
-
-    // State Table
-    always @(*) begin
-        case (current_state)
-            DINO_STANDING: next_state = (gameState == `GAME_RUNNING) ? DINO_RUNNING_1 : DINO_STANDING;
-            DINO_RUNNING_1: next_state = DINO_RUNNING_2;
-            DINO_RUNNING_2: next_state = DINO_RUNNING_1;
-            default: next_state = DINO_STANDING;
-        endcase
-    end
-    
-    // Output Logic
-    always @(*) begin
-        dinoSpriteAddress = 9'd0;
-        case (current_state)
-            DINO_RUNNING_1: dinoSpriteAddress = 9'd120;
-            DINO_RUNNING_2: dinoSpriteAddress = 9'd240;
-        endcase
-    end
-
-    // Current State Register
-    /*always @(posedge clk) begin
-        if (!resetn) current_state <= DINO_STANDING;
-        else current_state <= next_state;
-    end*/
-    reg frameHandled;
-    always @(posedge clk) begin
-        if (!resetn) begin
-            current_state <= DINO_STANDING;
-            frameHandled <= 0;
-        end 
-        else if (frameClk && !frameHandled) begin
-            current_state <= next_state;
-            frameHandled <= 1;
-        end else if (!frameClk) frameHandled <= 0;
-    end
-endmodule
-
-/* Score Counter Logic (1-9 Values Only) */
-module GameScoreCounter(input clk, resetn, input[3:0] gameState, input incrementEnable, output reg [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
-	 reg frameHandled = 0;
-    /* Asynchronous Counting */
-	 always @(posedge clk) begin
-		  /* Begins on Reset or Game Menu */
-        if (!resetn || gameState == `GAME_MENU) begin
-            s_ones <= 0; 
-            s_tens <= 0; 
-            s_hundreds <= 0; 
-            s_thousands <= 0; 
-            s_tenthousands <= 0;
-            s_hunthousands <= 0;
-            frameHandled <= 0;
-        end 
-		  /* Continues only when Game is Running */
-		  else if (incrementEnable && !frameHandled && gameState == `GAME_RUNNING) begin
-            frameHandled <= 1;
-            s_ones = s_ones + 1;
-            if (s_ones == 10) begin
-                s_ones <= 0;
-                s_tens = s_tens + 1;
-                if (s_tens == 10) begin
-                    s_tens <= 0;
-                    s_hundreds = s_hundreds + 1;
-                    if (s_hundreds == 10) begin
-                        s_hundreds <= 0;
-                        s_thousands = s_thousands + 1;
-                        if (s_thousands == 10) begin
-                            s_thousands <= 0;
-                            s_tenthousands = s_tenthousands + 1;
-                            if (s_tenthousands == 10) begin
-                                s_tenthousands <= 0;
-                                s_hunthousands = s_hunthousands + 1;
-                            end
-                        end
-                    end
-                end
-            end
-        end else if (!incrementEnable) begin
-            frameHandled <= 0;
-        end
-    end
-endmodule  
-
-/* Displays Score On Hexes (1-9 Values Only) */
-module GameScoreView(input [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands, output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
-    hex_decoder h0(.hex_digit(s_ones), .segments(HEX0));
-    hex_decoder h1(.hex_digit(s_tens), .segments(HEX1));
-    hex_decoder h2(.hex_digit(s_hundreds), .segments(HEX2));
-    hex_decoder h3(.hex_digit(s_thousands), .segments(HEX3));
-    hex_decoder h4(.hex_digit(s_tenthousands), .segments(HEX4));
-    hex_decoder h5(.hex_digit(s_hunthousands), .segments(HEX5));
 endmodule
 
 /* Controller: Finite State Machine  */
