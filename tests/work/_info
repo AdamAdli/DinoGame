@@ -52,22 +52,22 @@ R10
 R11
 ndelay_counter@test
 vDelayCounter30FPS
-R1
+Z12 !s110 1543442523
 !i10b 1
-!s100 ODAU]XVRHC`:@9_n>Q[692
-ICUHS32oiIZO0o_58ehW9M1
+!s100 8?8caNzZceELI]iHOORgA3
+In97Y7OBdJB@=EmFQbczb33
 R2
 R0
-R3
-R4
-R5
-L0 13
+Z13 w1543407774
+Z14 8..\.\Util.v
+Z15 F..\.\Util.v
+L0 3
 R6
 r1
 !s85 0
 31
-R7
-R8
+Z16 !s108 1543442522.000000
+Z17 !s107 ..\.\GameScore.v|..\.\.\.\.\DinoGameConstants.v|..\.\.\.\DinoPixelRenderer.v|..\.\.\.\DinoGameConstants.v|..\.\.\GameStateRenderers.v|..\.\.\DinoGameConstants.v|..\.\GameRenderer.v|..\.\DinoGameConstants.v|..\.\Util.v|../dinospriteROM.v|../Util.v|../DinoGame.v|
 R9
 !i113 1
 R10
@@ -95,74 +95,118 @@ R9
 R10
 R11
 n@delay@counter30@f@p@s@test
-vDinoController
-R1
+vDelayCounter60FPS
+R12
 !i10b 1
-!s100 EBg1dNSgNS7MD7Fa@>eJR1
-I;JDWbRC7I`QTlcUJYYKTk3
+!s100 X545anQeN=]V]93R@hm4o1
+I<K]G6dd^D1b];PLzRaWIa2
 R2
 R0
-Z12 w1543401319
-Z13 8..\.\DinoPixelRenderer.v
-Z14 F..\.\DinoPixelRenderer.v
-L0 17
+R13
+R14
+R15
+L0 14
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
+R9
+!i113 1
+R10
+R11
+n@delay@counter60@f@p@s
+vDelayCounterTest
+R12
+!i10b 1
+!s100 8cPP@ViIF^1XjSW4XEcz<2
+I?YQliee0CR[K^oZ_;BC]:2
+R2
+R0
+R13
+R14
+R15
+L0 25
+R6
+r1
+!s85 0
+31
+R16
+R17
+R9
+!i113 1
+R10
+R11
+n@delay@counter@test
+vDinoController
+R12
+!i10b 1
+!s100 GM]Qh4_=OC02abNEVBR;<1
+IghT;]3N=jIiJ5Y7VY<QQR0
+R2
+R0
+Z18 w1543405955
+Z19 8..\.\.\.\DinoPixelRenderer.v
+Z20 F..\.\.\.\DinoPixelRenderer.v
+Z21 L0 17
+R6
+r1
+!s85 0
+31
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@dino@controller
 vDinoGame
-R1
+R12
 !i10b 1
-!s100 E=I^1LGY0lRaN@fIUI5W30
-IYiL^NjKcch0eMWKZMk[_[3
+!s100 5EfY5B?2Kb;>M<kgj9WBO0
+Ielk40j3lCTd^I=ZjH3SW_0
 R2
 R0
-Z15 w1543401322
-Z16 8../DinoGame.v
-Z17 F../DinoGame.v
-L0 6
+Z22 w1543442520
+Z23 8../DinoGame.v
+Z24 F../DinoGame.v
+L0 7
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@dino@game
 vDinoPixelRenderer
-R1
+R12
 !i10b 1
-!s100 Qj`0MP1A4f7mW7R]ohYIQ3
-I^Gji<bi6Q6WS8gIhDgKVS3
+!s100 mgYR1C0jO[L5Z410NLS[S2
+II:cmaaGG5^5?RPDJJ:<GC1
 R2
 R0
-R12
-R13
-R14
+R18
+R19
+R20
 L0 3
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@dino@pixel@renderer
 vdinospriteROM
-R1
+R12
 !i10b 1
 !s100 @@7hol;=oi;Ufbm7@>9;W1
 IZ@3GR>A20TlhBnHF_20VN0
@@ -176,8 +220,8 @@ R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
@@ -226,176 +270,308 @@ R9
 R10
 R11
 vFrameSkipper
-R1
+R12
 !i10b 1
-!s100 _UeV4`>P[nb?f4MaCnWiT3
-I^R0F9>S_9^=;gGjRfmnmN1
+!s100 5MY5ifWA[UmD[5fJQ2AhY3
+IUd2T]z_hdjN9CcQMAR]DB0
 R2
 R0
-R3
-R4
-R5
-L0 70
+R13
+R14
+R15
+L0 36
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@frame@skipper
-vGameControl
-R1
+vGameColorRenderer
+R12
 !i10b 1
-!s100 _1lm=IVZBQ?mBz_aM4SWX1
-IR`d9hX`neJD^G654Jah_b3
+!s100 cFC9zWLh@GLE^=3WT_am`0
+I6Z6lejk=`4XaP8HBkQDZL1
 R2
 R0
-R15
-R16
-R17
-L0 167
+Z25 w1543442519
+Z26 8..\.\GameRenderer.v
+Z27 F..\.\GameRenderer.v
+L0 34
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
+R9
+!i113 1
+R10
+R11
+n@game@color@renderer
+vGameControl
+R12
+!i10b 1
+!s100 9<<=8@>h75V;_^[M133mc1
+IMf?2`EEE9?:WJ;OKSHLEm1
+R2
+R0
+R22
+R23
+R24
+L0 137
+R6
+r1
+!s85 0
+31
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@game@control
 vGameImplementation
-R1
+R12
 !i10b 1
-!s100 Ib@U>KHZU7[c^Y43XIgVT1
-IHAl3jm7JlP3XSagP0k7L[0
+!s100 nO4DoHVPXCo2H5hE8J75V0
+IHd`[_W0YQcW=ZCJ8JQcT;1
 R2
 R0
-R15
-R16
-R17
-L0 50
+R22
+R23
+R24
+L0 51
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@game@implementation
 vGameLogic
-R1
+R12
 !i10b 1
-!s100 eR?U]Oma9<[[2Phazhn4W2
-IPlBz;40c[@R<>>ci:LB<i2
+!s100 bJe7URo?b1XGjE>EVD=o90
+I5Y:aSW^R^g7VLbTfO8JfR1
 R2
 R0
-R15
-R16
-R17
-L0 71
+R22
+R23
+R24
+L0 72
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@game@logic
-vGamePixelRenderer
-R1
+vGameMenuRenderer
+R12
 !i10b 1
-!s100 m46W]J4a_gIzj6>:V>_c]3
-I7bU<Vi^mX87EALSCfDWlQ2
+!s100 Yk@IC=51d1DabM_@SZ:h=2
+I]b=J]3aecAb:ieUeXL<dH2
 R2
 R0
-R15
-R16
-R17
-L0 136
+Z28 w1543442381
+Z29 8..\.\.\GameStateRenderers.v
+Z30 F..\.\.\GameStateRenderers.v
+R21
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
 R11
-n@game@pixel@renderer
-vGameScoreCounter
-R1
+n@game@menu@renderer
+vGameOverRenderer
+R12
 !i10b 1
-!s100 ]ERQm6Z1USZoXWCe@OBQV0
-IYA1Ok5Y7DG2B]?AzSGPKW1
+!s100 =iCLT6CIQD:[4Wk4gOS^;2
+IGV9f>cKT8Kio<kS?o92<g0
 R2
 R0
-Z18 w1543401320
-Z19 8..\.\GameScore.v
-Z20 F..\.\GameScore.v
+R28
+R29
+R30
+L0 43
+R6
+r1
+!s85 0
+31
+R16
+R17
+R9
+!i113 1
+R10
+R11
+n@game@over@renderer
+vGamePauseRenderer
+R12
+!i10b 1
+!s100 h89PXKLh3>>_D^MDEZFlI3
+IXlI>YAfN7]1of]lJjfIa51
+R2
+R0
+R28
+R29
+R30
+L0 30
+R6
+r1
+!s85 0
+31
+R16
+R17
+R9
+!i113 1
+R10
+R11
+n@game@pause@renderer
+vGamePixelRenderer
+R12
+!i10b 1
+!s100 XInh:`g6M?IY:Z:OE2[hZ0
+IY@>V]zSH>U5E8OcclbbQh2
+R2
+R0
+R25
+R26
+R27
 L0 4
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
+R9
+!i113 1
+R10
+R11
+n@game@pixel@renderer
+vGameRenderer
+!s110 1543441244
+!i10b 1
+!s100 YbK2@mIoleL<`JJz@o2^L0
+I3[=BJ`^R651XajSJzOg[C2
+R2
+R0
+w1543441239
+R26
+R27
+L0 98
+R6
+r1
+!s85 0
+31
+!s108 1543441243.000000
+!s107 ..\.\GameScore.v|..\.\.\.\.\DinoGameConstants.v|..\.\.\.\DinoPixelRenderer.v|..\.\.\.\DinoGameConstants.v|..\.\.\GameRunningRenderer.v|..\.\.\DinoGameConstants.v|..\.\GameRenderer.v|..\.\DinoGameConstants.v|..\.\Util.v|../dinospriteROM.v|../Util.v|../DinoGame.v|
+R9
+!i113 1
+R10
+R11
+n@game@renderer
+vGameRunningRenderer
+R12
+!i10b 1
+!s100 fCjcRW[EQC`9hgFE^h;7`0
+I4K]oem5aon3S2mFojXOBS1
+R2
+R0
+R28
+R29
+R30
+L0 4
+R6
+r1
+!s85 0
+31
+R16
+R17
+R9
+!i113 1
+R10
+R11
+n@game@running@renderer
+vGameScoreCounter
+R12
+!i10b 1
+!s100 zPa[2OFb@aPeifQifi;Ah3
+Ic8ZRY]_]51AkV?`7SAZi92
+R2
+R0
+Z31 w1543401680
+Z32 8..\.\GameScore.v
+Z33 F..\.\GameScore.v
+L0 4
+R6
+r1
+!s85 0
+31
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@game@score@counter
 vGameScoreView
-R1
+R12
 !i10b 1
 !s100 L]kSJI`F:3Ib5o::VY4Qe0
 IcTRocj^:31d6dZz:c<cPK2
 R2
 R0
-R18
-R19
-R20
+R31
+R32
+R33
 L0 49
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10
 R11
 n@game@score@view
 vhex_decoder
-R1
+R12
 !i10b 1
-!s100 zCCEZVUHG=;NEzV18NY1R3
-I]o`lJ56H:b0G2NmUTCD4`3
+!s100 ^CWNKELji`=X1PPC2_gZg1
+I5<E^36^z3O46;]fdXjl`M0
 R2
 R0
-R3
-R4
-R5
-L0 102
+R13
+R14
+R15
+L0 48
 R6
 r1
 !s85 0
 31
-R7
-R8
+R16
+R17
 R9
 !i113 1
 R10

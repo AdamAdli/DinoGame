@@ -10,10 +10,14 @@ vsim -L altera_mf_ver GameImplementation
 # Log and wave all signals.
 log {/*}
 add wave {/*}
-add wave {/GameImplementation/gameLogic/*}
-add wave {/GameImplementation/gameLogic/gameScoreCounter/*}
-add wave {/GameImplementation/gamePixelRenderer/*}
-add wave {/GameImplementation/gamePixelRenderer/dinoRenderer/dinoController/*}
+#add wave {/GameImplementation/gameLogic/*}
+#add wave {/GameImplementation/gameLogic/gameScoreCounter/*}
+add wave {/GameImplementation/gamePixelRenderer/x}
+add wave {/GameImplementation/gamePixelRenderer/y}
+add wave {/GameImplementation/gamePixelRenderer/color}
+add wave {/GameImplementation/gamePixelRenderer/plotPixel}
+#add wave {/GameImplementation/gamePixelRenderer/dinoRenderer/dinoController/*}
+#add wave {/GameImplementation/gamePixelRenderer/gameRunningRenderer/*}
 
 property wave -radix Unsigned {/*}
 
@@ -24,4 +28,4 @@ force {jump} 0 0, 1 500ms
 force {gameState} 0 0, 4'b0011 5
 
 
-run 1000000000ps
+run 1200100ps

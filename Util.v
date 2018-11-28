@@ -3,9 +3,9 @@
 module DelayCounter30FPS(input clk, resetn, enable, output reg [20:0] cycle_count);
     // 50 Mhz / 30 Hz = 1666667
     always @(posedge clk) begin
-        if (!resetn) cycle_count <= 21'd1666667;
+        if (!resetn) cycle_count <= 0;//21'd1666667;
         else if (enable) begin
-            if (cycle_count == 0) cycle_count <= 21'd833332;
+            if (cycle_count == 0) cycle_count <= 21'd1666667;
             else cycle_count <= cycle_count - 1'b1; 
         end
     end
@@ -14,7 +14,7 @@ endmodule
 module DelayCounter60FPS(input clk, resetn, enable, output reg [19:0] cycle_count);
     // 50 Mhz / 60 Hz = 833333
     always @(posedge clk) begin
-        if (!resetn) cycle_count <= 20'd833332;
+        if (!resetn) cycle_count <= 0;//20'd833332;
         else if (enable) begin
             if (cycle_count == 0) cycle_count <= 20'd833332;
             else cycle_count <= cycle_count - 1'b1; 
@@ -23,9 +23,8 @@ module DelayCounter60FPS(input clk, resetn, enable, output reg [19:0] cycle_coun
 endmodule
 
 module DelayCounterTest(input clk, resetn, enable, output reg [20:0] cycle_count);
-    // 50 Mhz / 30 Hz = 1666667
     always @(posedge clk) begin
-        if (!resetn) cycle_count <= 21'd99999;
+        if (!resetn) cycle_count <= 0;//21'd99999;
         else if (enable) begin
             if (cycle_count == 0) cycle_count <= 21'd99999;
             else cycle_count <= cycle_count - 1'b1; 

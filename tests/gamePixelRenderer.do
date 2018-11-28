@@ -11,6 +11,7 @@ vsim -L altera_mf_ver GamePixelRenderer
 log {/*}
 add wave {/*}
 property wave -radix Unsigned {/*}
+add wave {/GamePixelRenderer/gameRunningRenderer/*}
 
 # Simulation
 force {clk} 0 0, 1 1 -r 2

@@ -44,7 +44,7 @@ module DinoController(input clk, frameClk, resetn, input [3:0] gameState, output
         if (!resetn) begin
             current_state <= DINO_STANDING;
             frameHandled <= 0;
-                frameCounter <= 2'd3;
+            frameCounter <= 2'd3;
         end 
         else if (frameClk && !frameHandled) begin
             frameHandled <= 1;
