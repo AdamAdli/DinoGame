@@ -47,6 +47,7 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0]
 	/* Specific Wires for VGA */
 	wire [2:0] color;
 	wire `ubyte x, y;
+    wire plotPixel;
 
 	/* Assignment Statements */
 	assign clk = CLOCK_50;
@@ -55,7 +56,7 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0]
 	assign resetn = KEY[2]; // Active-Low Reset.
 
 	/* VGA Display */
-   vga_adapter VGA(.clock(clk), .resetn(resetn), .colour(color), .x(x), .y(y[6:0]), .plot(1), .VGA_R(VGA_R), .VGA_G(VGA_G), 
+   vga_adapter VGA(.clock(clk), .resetn(resetn), .colour(color), .x(x), .y(y[6:0]), .plot(plotPixel), .VGA_R(VGA_R), .VGA_G(VGA_G), 
 		.VGA_B(VGA_B), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_BLANK(VGA_BLANK_N), .VGA_SYNC(VGA_SYNC_N), .VGA_CLK(VGA_CLK));
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
@@ -63,7 +64,7 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0]
       defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
     GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collide(collision), .gameState(gameState));
-    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState), .collision (collision), .x(x), .y(y), .color(color),
+    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState), .collision (collision), .x(x), .y(y), .color(color), .plotPixel(plotPixel),
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
     /*GameLogic gameLogic(.clk(clk), .resetn(resetn), .jump(jump), .gameState(gameState),
         .dinoY(dinoY), .obs1X(obs1X), .obs1H(obs1H), .obs2X(obs2X), .obs2H(obs2H), .collision(collision), 
@@ -82,21 +83,21 @@ module GameImplementation(input clk, resetn, pause, jump, input [3:0] gameState,
     // Controller outputs
     output collision, 
     // Visualization outputs
-    output `ubyte x, y, output [2:0] color,
+    output `ubyte x, y, output [2:0] color, output plotPixel,
     output [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
 
     wire `ubyte dinoY, obs1X, obs1H, obs2X, obs2H;    
-    
+
     wire [19:0] c0;
-    delay_counterTest rate_div(.clk(clk), .resetn(resetn), .enable(1'd1), .cycle_count(c0));
+    DelayCounter30FPSTest rate_div(.clk(clk), .resetn(resetn), .enable(1'd1), .cycle_count(c0));
     wire frameClk = (c0 == 0);
 
     GameLogic gameLogic(.clk(clk), .frameClk(frameClk), .resetn(resetn), .jump(jump), .gameState(gameState),
         .dinoY(dinoY), .obs1X(obs1X), .obs1H(obs1H), .obs2X(obs2X), .obs2H(obs2H), .collision(collision), 
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
-    GamePixelRenderer gamePixelRenderer(.clk(clk), .frameClk(frameClk), .resetn(resetn), .enable(1'd1), .gameState(gameState),
+    GamePixelRenderer gamePixelRenderer(.clk(clk), .frameClk(frameClk), .resetn(resetn), .enable(1), .gameState(gameState),
         .dinoY(dinoY), .obs1X(obs1X), .obs1H(obs1H), .obs2X(obs2X), .obs2H(obs2H),
-        .x(x), .y(y), .color(color));
+        .x(x), .y(y), .color(color), .plotPixel(plotPixel));
 endmodule
 
 module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, output reg `ubyte dinoY, 
@@ -165,8 +166,7 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
 endmodule
 
 module GamePixelRenderer(input clk, frameClk, resetn, enable, input [3:0] gameState, input `ubyte dinoY, obs1X, obs1H, obs2X, obs2H, 
-    output reg `ubyte x, y, output reg [2:0] color);
-    
+    output reg `ubyte x, y, output reg [2:0] color, output reg plotPixel);
     wire [2:0] dinoColor;
     DinoPixelRenderer dinoRenderer(.clk(clk), .frameClk(frameClk), .resetn(resetn), .x(x), .y(y), .gameState(gameState), .dinoY(dinoY), .color(dinoColor));
     always @(posedge clk) begin
@@ -174,18 +174,24 @@ module GamePixelRenderer(input clk, frameClk, resetn, enable, input [3:0] gameSt
             x <= 0; 
             y <= 0;
             color <= `colBG;
-        end else if (enable && ((frameClk) || (x || y))) begin
-            if (x < `xMAX) x <= x + 1;
-            else begin 
-                x <= 0;
-                if (y < `yMAX) y <= y + 1;
-                else y <= 0;
-            end 
-            color <= `colBG; // Default color is background.
-            if (y >= `groundTop) color <= `colGrnd; // Ground.
-            else if (x >= `dinoLeft && x < `dinoRight  && y >= dinoY && y < dinoY + `dinoH && dinoColor != `colDinoTransparentMask) color <= dinoColor; // Dino    
-            else if (x >= obs1X && x < obs1X + `obsW && y >= `groundTop - obs1H) color <= `colObs1; // obs 1
-            else if (x >= obs2X && x < obs2X + `obsW && y >= `groundTop - obs2H) color <= `colObs2; // obs 2
+            plotPixel <= 0;
+        end else if (enable && ((frameClk) || ((x || y) || plotPixel))) begin
+            if (!plotPixel) begin
+                if (x < `xMAX) x <= x + 1;
+                else begin 
+                    x <= 0;
+                    if (y < `yMAX) y <= y + 1;
+                    else y <= 0;
+                end
+            end
+            if (plotPixel) begin
+                color <= `colBG; // Default color is background.
+                if (y >= `groundTop) color <= `colGrnd; // Ground.
+                else if (x >= `dinoLeft && x < `dinoRight  && y >= dinoY && y < dinoY + `dinoH && dinoColor != `colDinoTransparentMask) color <= dinoColor; // Dino    
+                else if (x >= obs1X && x < obs1X + `obsW && y >= `groundTop - obs1H) color <= `colObs1; // obs 1
+                else if (x >= obs2X && x < obs2X + `obsW && y >= `groundTop - obs2H) color <= `colObs2; // obs 2
+            end
+            plotPixel <= ~plotPixel;
         end
     end
 endmodule

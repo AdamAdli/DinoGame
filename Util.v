@@ -10,6 +10,51 @@ module delay_counter60(input clk, resetn, enable, output reg [19:0] cycle_count)
     end
 endmodule
 
+module DelayCounter30FPS(input clk, resetn, enable, output reg [20:0] cycle_count);
+    // 50 Mhz / 30 Hz = 1666667
+    always @(posedge clk) begin
+        if (!resetn) cycle_count <= 21'd1666667;
+        else if (enable) begin
+            if (cycle_count == 0) cycle_count <= 21'd833332;
+            else cycle_count <= cycle_count - 1'b1; 
+        end
+    end
+endmodule
+
+module DelayCounter30FPSTest(input clk, resetn, enable, output reg [20:0] cycle_count);
+    // 50 Mhz / 30 Hz = 1666667
+    always @(posedge clk) begin
+        if (!resetn) cycle_count <= 21'd99999;
+        else if (enable) begin
+            if (cycle_count == 0) cycle_count <= 21'd99999;
+            else cycle_count <= cycle_count - 1'b1; 
+        end
+    end
+endmodule
+
+
+/*module DelayCounter(clk, resetn, enable, cycle_count);
+    //1666667
+    parameter ROOT_CLOCK = 50000000;
+    parameter FRAME_RATE = 30;
+    parameter RESET_AMOUNT = ROOT_CLOCK / FRAME_RATE;
+    parameter RESET_BITS = $clog(RESET_AMOUNT);
+    wire[RESET_BITS - 1:0] cycle_reset = RESET_AMOUNT;
+    //wire[$clog2(ROOT_CLOCK / FRAME_RATE)] cycle_reset =  ROOT_CLOCK / FRAME_RATE;
+    //parameter BITS = log
+    parameter BITS = 28;
+    output reg [RESET_BITS - 1:0] cycle_count;
+    input clk, resetn, enable;
+
+    always @(posedge clk) begin
+        if (!resetn) cycle_count <= 0;
+        else if (enable) begin
+            if (cycle_count == 0) cycle_count <= RESET_AMOUNT;
+            else cycle_count <= cycle_count - 1'b1; 
+        end
+    end
+endmodule*/
+
 module delay_counterTest(input clk, resetn, enable, output reg [19:0] cycle_count);
     // 50 Mhz / 60 Hz = 833333
     always @(posedge clk) begin
