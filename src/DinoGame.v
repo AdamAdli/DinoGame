@@ -56,7 +56,6 @@ module TestDinoGame(input clk, resetn, pause, jump,
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
 endmodule
 
-
 /* Datapath: Sends Signals */
 module GameImplementation(input clk, resetn, pause, jump, input [3:0] gameState, 
     // Controller outputs

@@ -111,6 +111,24 @@ module ObsMoverTest(input clk, frameClk, resetn, enable, input pause, output reg
     end 
 endmodule
 
+/* 4-bit Linear-Feedback Shift Register for Pseudo-RNG */
+module LFSR4bit(clk, reset, enable, out);
+	input clk, enable, reset;
+	output reg [3:0] out;
+	wire feedback;
+	
+	/* Feedback bit uses 3rd and 1st bit as tap bits. */
+	assign feedback = ~(out[2] ^ out[0]);
+	
+	always @(posedge clk)
+		begin
+			if (reset == 1'b0)
+				out <= 4'b0;
+			else if (enable == 1'b1)
+				out <= {out[2:0], feedback};
+		end
+endmodule
+
 /* f3: y=0.4008255 + (518.1582*t) - (1413.798*t*t)*/
 module DinoStateJumpAutomation(input clk, frameClk, resetn, enable, jump, input pause, output reg `ubyte elev);
     reg [24:0] cycleCount;
