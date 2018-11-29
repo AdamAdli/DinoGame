@@ -37,30 +37,6 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
                     if (s_tenthousands >= 1 || s_hunthousands >= 1) gameSpeed <= 3;
                     else if (s_thousands < 1) gameSpeed <= 1;
                     else if (s_thousands >= 1) gameSpeed <= 2;
-              
-                    /*
-                    // Jump/Dino Y. This could be improved. (Jump needs to be commented out for logic.do).
-                    if (dinoY == `groundTop - `dinoH) dinoY <= shouldJump ? dinoY - 20 : dinoY;
-                    else if (dinoY < `groundTop - `dinoH) dinoY <= dinoY + 2;
-                    else if (dinoY > `groundTop - `dinoH) dinoY <= `groundTop - `dinoH;
-
-                    // Collision setup.
-                    if (obs1X < obs2X && obs1X >= `dinoLeft - `obsW) begin
-                        colObsL = obs1X;
-                        colObsR = obs1X + `obsW;
-                        colObsT = `groundTop - obs1H;
-                    end else begin
-                        colObsL = obs2X;
-                        colObsR = obs2X + `obsW;
-                        colObsT = `groundTop - obs2H;
-                    end
-
-                    // Check collisions.
-                    // collision <= 0; //Commented THIS OUT (seems unnecessary?)
-                    if ((colObsL >= `dinoLeft && colObsL < `dinoRight) || (colObsR >= `dinoRight && colObsR - 1 < `dinoRight)) begin                 
-                        //if (colObsT >= dinoY && colObsT < dinoY + `dinoH) collision <= 1; //OLD VERSION
-                              if (colObsT <= dinoY + `dinoH) collision <= 1; // Nick's Maybe Working Ver?
-                    end*/
                 end
             end
             if (gameState == `GAME_RUNNING) begin
@@ -78,11 +54,16 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
                 end
 
                 // Check collisions.
+                // Through elimination:
+                collision <= 0;
+                if ((colObsL < `dinoRight) && (colObsR > `dinoLeft) && (colObsT <= dinoY + `dinoH)) collision <= 1;
+ 
                 // collision <= 0; //Commented THIS OUT (seems unnecessary?)
-                if ((colObsL >= `dinoLeft && colObsL < `dinoRight) || (colObsR >= `dinoRight && colObsR - 1 < `dinoRight)) begin                 
+             
+                /*if ((colObsL >= `dinoLeft && colObsL < `dinoRight) || (colObsR >= `dinoRight && colObsR - 1 < `dinoRight)) begin                 
                     //if (colObsT >= dinoY && colObsT < dinoY + `dinoH) collision <= 1; //OLD VERSION
                     if (colObsT <= dinoY + `dinoH) collision <= 1; // Nick's Maybe Working Ver?
-                end
+                end*/
 
                 // Update Obstacles.
                 if (obsClk) begin
@@ -109,24 +90,6 @@ module ObsMoverTest(input clk, frameClk, resetn, enable, input pause, output reg
             if (moveClk) moveClk <= 0;
         end 
     end 
-endmodule
-
-/* 4-bit Linear-Feedback Shift Register for Pseudo-RNG */
-module LFSR4bit(clk, reset, enable, out);
-	input clk, enable, reset;
-	output reg [3:0] out;
-	wire feedback;
-	
-	/* Feedback bit uses 3rd and 1st bit as tap bits. */
-	assign feedback = ~(out[2] ^ out[0]);
-	
-	always @(posedge clk)
-		begin
-			if (reset == 1'b0)
-				out <= 4'b0;
-			else if (enable == 1'b1)
-				out <= {out[2:0], feedback};
-		end
 endmodule
 
 /* f3: y=0.4008255 + (518.1582*t) - (1413.798*t*t)*/

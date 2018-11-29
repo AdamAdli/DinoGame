@@ -310,15 +310,29 @@ set_location_assignment PIN_E12 -to VGA_R[6]
 set_location_assignment PIN_F13 -to VGA_R[7]
 set_location_assignment PIN_C10 -to VGA_SYNC_N
 set_location_assignment PIN_D11 -to VGA_VS
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE src/Rendering/Sprites/Dino/dinospriteROM.v
+set_global_assignment -name QIP_FILE src/Rendering/Sprites/Dino/dinospriteROM.qip
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/Pause/pausemono.mif
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/Pause/pause8color.mif
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/Menu/titlemono.mif
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/Menu/title8color.mif
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/GameOver/gameovermono.mif
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/GameOver/gameover8color.mif
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/Background/backgroundmono.mif
+set_global_assignment -name MIF_FILE src/Rendering/Sprites/Background/background8color.mif
 set_global_assignment -name VERILOG_FILE DinoGame.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_pll.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_controller.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_address_translator.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_adapter.v
 set_global_assignment -name QIP_FILE dinospriteROM.qip
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name MIF_FILE tests/testing_dinosprite8colorflattened2.mif
 set_global_assignment -name MIF_FILE dinosprite8colorflattened.mif
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name QIP_FILE PauseSpriteROM.qip
+set_global_assignment -name QIP_FILE TitleSpriteROM.qip
+set_global_assignment -name QIP_FILE GameOverSpriteROM.qip
+set_global_assignment -name QIP_FILE BackgroundSpriteROM.qip

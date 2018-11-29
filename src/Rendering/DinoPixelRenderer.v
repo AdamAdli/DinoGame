@@ -12,10 +12,10 @@ module DinoPixelRenderer(input clk, frameClk, resetn, input `ubyte x, y, input [
         else dinoSpriteAddress = 0;     
     end
 
-    always @(posedge clk ) begin
+    /*always @(posedge clk ) begin
         if (x >= `dinoLeft && x < `dinoRight  && y >= dinoY && y < dinoY + `dinoH)
-            $display("%t: x %d y %d dinoSpriteAddress %d color: %b", $time, x, y, dinoSpriteAddress, color);
-    end
+            // $display("%t: x %d y %d dinoSpriteAddress %d color: %b", $time, x, y, dinoSpriteAddress, color);
+    end*/
 
     // TODO: REMOVE TESTING
     DinoController dinoController(.clk(clk), .frameClk(frameClk), .resetn(resetn), .gameState(gameState), 

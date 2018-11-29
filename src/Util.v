@@ -53,6 +53,26 @@ module FrameSkipperClkAccurate(input clk, frameClk, resetn, input [3:0] skipCoun
     end
 endmodule
 
+// Random Number Modules ==========================================================
+/* 4-bit Linear-Feedback Shift Register for Pseudo-RNG */
+module LFSR4bit(clk, reset, enable, out);
+    input clk, enable, reset;
+    output reg [3:0] out;
+    wire feedback;
+    
+    /* Feedback bit uses 3rd and 1st bit as tap bits. */
+    assign feedback = ~(out[2] ^ out[0]);
+    
+    always @(posedge clk)
+        begin
+            if (reset == 1'b0)
+                out <= 4'b0;
+            else if (enable == 1'b1)
+                out <= {out[2:0], feedback};
+        end
+endmodule
+
+
 // View Modules ==========================================================
 /** hex_decoder used from lab 6 */
 module hex_decoder(hex_digit, segments);
