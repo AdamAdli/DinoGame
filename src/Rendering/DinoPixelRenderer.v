@@ -1,17 +1,27 @@
-`include "./DinoGameConstants.v"
+`include "../DinoGameConstants.v"
+`include "./Sprites/Dino/dinospriteROM.v"
+
 
 module DinoPixelRenderer(input clk, frameClk, resetn, input `ubyte x, y, input [3:0] gameState, input `ubyte dinoY, output [2:0] color);
     wire [8:0] dinoSpriteOriginAddress;
-    wire [8:0] dinoSpriteAddress = dinoSpriteOriginAddress + ((x - `dinoLeft) + ((y - dinoY) * 10) + 9'd1); 
+    wire [8:0] dinoSpriteAddressCalc = dinoSpriteOriginAddress + ((x - `dinoLeft) + ((y - dinoY) * 10) + 1); 
+    reg [8:0] dinoSpriteAddress;
+
+    always @(*) begin
+        if (dinoSpriteAddressCalc >= 0 && dinoSpriteAddressCalc <= 359) dinoSpriteAddress = dinoSpriteAddressCalc;
+        else dinoSpriteAddress = 0;     
+    end
 
     always @(posedge clk ) begin
         if (x >= `dinoLeft && x < `dinoRight  && y >= dinoY && y < dinoY + `dinoH)
             $display("%t: x %d y %d dinoSpriteAddress %d color: %b", $time, x, y, dinoSpriteAddress, color);
     end
 
+    // TODO: REMOVE TESTING
     DinoController dinoController(.clk(clk), .frameClk(frameClk), .resetn(resetn), .gameState(gameState), 
          .dinoSpriteAddress(dinoSpriteOriginAddress));
     dinospriteROM dinoSprite(.clock(clk), .address(dinoSpriteAddress), .q(color));
+    //assign color = 3'b001;
 endmodule
 
 module DinoController(input clk, frameClk, resetn, input [3:0] gameState, output reg [8:0] dinoSpriteAddress);    

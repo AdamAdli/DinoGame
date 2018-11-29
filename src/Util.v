@@ -43,6 +43,16 @@ module FrameSkipper(input clk, frameClk, resetn, input [3:0] skipCount, output r
     end
 endmodule
 
+module FrameSkipperClkAccurate(input clk, frameClk, resetn, input [3:0] skipCount, output reg [3:0] frame_count);
+    always @(posedge clk) begin
+        if (!resetn) frame_count <= 0;
+        else begin
+            if (frame_count == 0) frame_count <= skipCount;
+            else if (frameClk) frame_count <= frame_count - 1'b1;
+        end
+    end
+endmodule
+
 // View Modules ==========================================================
 /** hex_decoder used from lab 6 */
 module hex_decoder(hex_digit, segments);

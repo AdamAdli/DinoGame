@@ -1,4 +1,4 @@
-`include "./DinoGameConstants.v"
+`include "../DinoGameConstants.v"
 `include "./DinoPixelRenderer.v"
 
 module GameRunningRenderer(input clk, frameClk, resetn, input `ubyte x, y, input `ubyte dinoY, obs1X, obs1H, obs2X, obs2H, 

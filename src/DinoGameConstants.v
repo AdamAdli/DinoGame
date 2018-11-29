@@ -34,5 +34,5 @@
     `define GAME_OVER           4'b0010
     `define GAME_OVER_WAIT_1    4'b0110
     `define GAME_OVER_WAIT_2    4'b0100  // We split this to avoid race issue between flipping bits causing weird momentary states.
-    `define DINO_GAME_CONSTANTS
+    `define DINO_GAME_CONSTANTS  
 `endif

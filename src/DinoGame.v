@@ -1,5 +1,6 @@
 `include "./Util.v"
 `include "./DinoGameConstants.v"
+`include "./GameLogic.v"
 `include "./GameRenderer.v"
 `include "./GameScore.v"
 
@@ -32,8 +33,8 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0]
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
       defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
-    GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collide(collision), .gameState(gameState));
-    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState), .collision (collision), .x(x), .y(y), .color(color), .plotPixel(plotPixel),
+    GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collision(collision), .gameState(gameState));
+    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState), .collision(collision), .x(x), .y(y), .color(color), .plotPixel(plotPixel),
         .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
     GameScoreView gameScoreView(.s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands), 
         .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
@@ -41,6 +42,20 @@ module DinoGame(input CLOCK_50, input [2:0] KEY, output [0:0] LEDR, output [6:0]
 	/* Single LEDR is on when game runs */
 	assign LEDR[0] = (gameState == `GAME_RUNNING);
 endmodule
+
+module TestDinoGame(input clk, resetn, pause, jump,
+    // Visualization outputs
+    output `ubyte x, y, output [2:0] color, output plotPixel,
+    output [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
+
+    wire [3:0] gameState;
+    wire collision;
+
+    GameControl gameControl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .collision(collision), .gameState(gameState));
+    GameImplementation gameImpl(.clk(clk), .resetn(resetn), .pause(pause), .jump(jump), .gameState(gameState), .collision(collision), .x(x), .y(y), .color(color), .plotPixel(plotPixel),
+        .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
+endmodule
+
 
 /* Datapath: Sends Signals */
 module GameImplementation(input clk, resetn, pause, jump, input [3:0] gameState, 
@@ -64,72 +79,8 @@ module GameImplementation(input clk, resetn, pause, jump, input [3:0] gameState,
         .x(x), .y(y), .color(color), .plotPixel(plotPixel));
 endmodule
 
-module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, output reg `ubyte dinoY, 
-    obs1X, obs1H, obs2X, obs2H, output reg collision, output [3:0] s_ones, s_tens, s_hundreds, s_thousands, s_tenthousands, s_hunthousands);
-    
-    reg `ubyte colObsL, colObsR, colObsT;
-    reg [2:0] gameSpeed = 3'd1; // TODO: Adjust gamespeed.
-    wire shouldJump = (jump && (dinoY == `groundTop - `dinoH));
-    
-    wire [3:0] c2;
-    FrameSkipper obstacleFrameSkip(.clk(clk), .frameClk(frameClk), .resetn(resetn), .skipCount({1'b0, 3'd4 - gameSpeed}), .frame_count(c2));
-    wire obsClk = (c2 == 0);
-
-	 /* Max score is 999999 (6 Hex Displays) and log2(999999) = 19.93 */
-    GameScoreCounter gameScoreCounter(.clk(clk), .resetn(resetn), .gameState(gameState), .incrementEnable(obsClk), 
-        .s_ones(s_ones), .s_tens(s_tens), .s_hundreds(s_hundreds), .s_thousands(s_thousands), .s_tenthousands(s_tenthousands), .s_hunthousands(s_hunthousands));
-
-    always @(posedge clk) begin
-        if (!resetn || gameState == `GAME_MENU) begin
-            dinoY <= `groundTop - `dinoH;
-            obs1X <= 120;
-            obs1H <= `minObsH;
-            obs2X <= 254;
-            obs2H <= `maxObsH;
-            collision <= 0;
-        end else if (frameClk) begin
-            if (gameState == `GAME_RUNNING) begin
-                // Adjust gamespeed.
-                if (s_tenthousands >= 1 || s_hunthousands >= 1) gameSpeed <= 3;
-                else if (s_thousands < 1) gameSpeed <= 1;
-                else if (s_thousands >= 1) gameSpeed <= 2;
-          
-                
-                // Jump/Dino Y. This could be improved. (Jump needs to be commented out for logic.do).
-                if (dinoY == `groundTop - `dinoH) dinoY <= shouldJump ? dinoY - 20 : dinoY;
-                else if (dinoY < `groundTop - `dinoH) dinoY <= dinoY + 2;
-                else if (dinoY > `groundTop - `dinoH) dinoY <= `groundTop - `dinoH;
-
-                // Collision setup.
-                if (obs1X < obs2X && obs1X >= `dinoLeft - `obsW) begin
-                    colObsL = obs1X;
-                    colObsR = obs1X + `obsW;
-                    colObsT = `groundTop - obs1H;
-                end else begin
-                    colObsL = obs2X;
-                    colObsR = obs2X + `obsW;
-                    colObsT = `groundTop - obs2H;
-                end
-
-                // Check collisions.
-                // collision <= 0; //Commented THIS OUT (seems unnecessary?)
-                if ((colObsL >= `dinoLeft && colObsL < `dinoRight) || (colObsR >= `dinoRight && colObsR - 1 < `dinoRight)) begin                 
-                    //if (colObsT >= dinoY && colObsT < dinoY + `dinoH) collision <= 1; //OLD VERSION
-						  if (colObsT <= dinoY + `dinoH) collision <= 1; // Nick's Maybe Working Ver?
-                end
-
-                // Update Obstacles.
-                if (obsClk) begin
-                    obs1X <= obs1X - 1;
-                    obs2X <= obs2X - 1;
-                end
-            end
-        end
-    end
-endmodule
-
 /* Controller: Finite State Machine  */
-module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gameState);
+module GameControl(input clk, resetn, pause, jump, collision, output reg [3:0] gameState);
     reg [3:0] current_state, next_state;
 
     wire startGame = (pause || jump);
@@ -140,12 +91,12 @@ module GameControl(input clk, resetn, pause, jump, collide, output reg [3:0] gam
             `GAME_MENU: next_state = startGame ? `GAME_MENU_WAIT : `GAME_MENU;
             `GAME_MENU_WAIT: next_state = startGame ? `GAME_MENU_WAIT : `GAME_RUNNING;
             `GAME_RUNNING: begin 
-                if (collide) next_state = `GAME_OVER;
+                if (collision) next_state = `GAME_OVER;
                 else next_state = pause ? `GAME_RUNNING_WAIT : `GAME_RUNNING;
             end
             `GAME_RUNNING_WAIT: next_state = pause ? `GAME_RUNNING_WAIT : `GAME_PAUSE;
-            `GAME_PAUSE: next_state = startGame ? `GAME_PAUSE_WAIT : `GAME_PAUSE;
-            `GAME_PAUSE_WAIT: next_state = startGame ? `GAME_PAUSE_WAIT : `GAME_RUNNING;
+            `GAME_PAUSE: next_state = pause ? `GAME_PAUSE_WAIT : `GAME_PAUSE;
+            `GAME_PAUSE_WAIT: next_state = pause ? `GAME_PAUSE_WAIT : `GAME_RUNNING;
             `GAME_OVER: next_state = startGame ? `GAME_OVER_WAIT_1 : `GAME_OVER;
             `GAME_OVER_WAIT_1: next_state = startGame ? `GAME_OVER_WAIT_1 : `GAME_OVER_WAIT_2;
             `GAME_OVER_WAIT_2: next_state = `GAME_MENU;

@@ -39,7 +39,7 @@ R0
 R3
 R4
 R5
-L0 58
+Z12 L0 58
 R6
 r1
 !s85 0
@@ -52,23 +52,23 @@ R10
 R11
 ndelay_counter@test
 vDelayCounter30FPS
-Z12 !s110 1543442523
+Z13 !s110 1543461506
 !i10b 1
 !s100 8?8caNzZceELI]iHOORgA3
-In97Y7OBdJB@=EmFQbczb33
+Ic7G<@[cJW9Zcmh>z[VeWS1
 R2
 R0
-Z13 w1543407774
-Z14 8..\.\Util.v
-Z15 F..\.\Util.v
+Z14 w1543453711
+Z15 8..\src\.\Util.v
+Z16 F..\src\.\Util.v
 L0 3
 R6
 r1
 !s85 0
 31
-Z16 !s108 1543442522.000000
-Z17 !s107 ..\.\GameScore.v|..\.\.\.\.\DinoGameConstants.v|..\.\.\.\DinoPixelRenderer.v|..\.\.\.\DinoGameConstants.v|..\.\.\GameStateRenderers.v|..\.\.\DinoGameConstants.v|..\.\GameRenderer.v|..\.\DinoGameConstants.v|..\.\Util.v|../dinospriteROM.v|../Util.v|../DinoGame.v|
-R9
+Z17 !s108 1543461506.000000
+Z18 !s107 ..\src\.\GameScore.v|..\src\.\.\Rendering\.\.\Sprites\Dino\dinospriteROM.v|..\src\.\.\Rendering\.\..\DinoGameConstants.v|..\src\.\.\Rendering\.\DinoPixelRenderer.v|..\src\.\.\Rendering\..\DinoGameConstants.v|..\src\.\.\Rendering\GameStateRenderers.v|..\src\.\GameRenderer.v|..\src\.\.\Util.v|..\src\.\.\DinoGameConstants.v|..\src\.\GameLogic.v|..\src\.\DinoGameConstants.v|..\src\.\Util.v|../src/DinoGame.v|
+Z19 !s90 -reportprogress|300|-timescale|1ps/1ps|../src/DinoGame.v|
 !i113 1
 R10
 R11
@@ -96,137 +96,203 @@ R10
 R11
 n@delay@counter30@f@p@s@test
 vDelayCounter60FPS
-R12
+R13
 !i10b 1
 !s100 X545anQeN=]V]93R@hm4o1
-I<K]G6dd^D1b];PLzRaWIa2
+I1imL3Mm0=BZH]jF=XVESa3
 R2
 R0
-R13
 R14
 R15
+R16
 L0 14
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@delay@counter60@f@p@s
 vDelayCounterTest
-R12
+R13
 !i10b 1
 !s100 8cPP@ViIF^1XjSW4XEcz<2
-I?YQliee0CR[K^oZ_;BC]:2
+I;Ri^4R[YMWhW_b5O7=:`21
 R2
 R0
-R13
 R14
 R15
+R16
 L0 25
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@delay@counter@test
 vDinoController
-R12
+R13
 !i10b 1
-!s100 GM]Qh4_=OC02abNEVBR;<1
-IghT;]3N=jIiJ5Y7VY<QQR0
+!s100 YhN5h6_mFA@FE9KJ8TB?D3
+IN>0oJCN=LJ<H:67TVSG@?0
 R2
 R0
-Z18 w1543405955
-Z19 8..\.\.\.\DinoPixelRenderer.v
-Z20 F..\.\.\.\DinoPixelRenderer.v
-Z21 L0 17
+Z20 w1543461228
+Z21 8..\src\.\.\Rendering\.\DinoPixelRenderer.v
+Z22 F..\src\.\.\Rendering\.\DinoPixelRenderer.v
+L0 27
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@dino@controller
 vDinoGame
-R12
+R13
 !i10b 1
-!s100 5EfY5B?2Kb;>M<kgj9WBO0
-Ielk40j3lCTd^I=ZjH3SW_0
+!s100 T>LC3Q>MQKOHgiV226R_f0
+I[YL`:8X4;QF]I7^d`T4BZ0
 R2
 R0
-Z22 w1543442520
-Z23 8../DinoGame.v
-Z24 F../DinoGame.v
-L0 7
+Z23 w1543458555
+Z24 8../src/DinoGame.v
+Z25 F../src/DinoGame.v
+L0 8
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@dino@game
-vDinoPixelRenderer
-R12
+vDinoJumpCounter
+R13
 !i10b 1
-!s100 mgYR1C0jO[L5Z410NLS[S2
-II:cmaaGG5^5?RPDJJ:<GC1
+!s100 XFVh2b:GRZDg4d01=Yczz0
+IBT4mnQ85@lolhPk1`VD;60
 R2
 R0
-R18
-R19
-R20
-L0 3
+Z26 w1543457998
+Z27 8..\src\.\GameLogic.v
+Z28 F..\src\.\GameLogic.v
+L0 803
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
+!i113 1
+R10
+R11
+n@dino@jump@counter
+vDinoPixelRenderer
+R13
+!i10b 1
+!s100 ;zi=@f]aWZ``<RhGzb0S<3
+I``?MA<IRI1lT<Jj6Jk<=m1
+R2
+R0
+R20
+R21
+R22
+L0 5
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
 !i113 1
 R10
 R11
 n@dino@pixel@renderer
 vdinospriteROM
-R12
+R13
 !i10b 1
-!s100 @@7hol;=oi;Ufbm7@>9;W1
-IZ@3GR>A20TlhBnHF_20VN0
+!s100 @n@Na9;aX1JVj9<Tn1aj33
+IijEo3<cgLeI4@nJbB`^Hz3
 R2
 R0
-w1542912218
-8../dinospriteROM.v
-F../dinospriteROM.v
+w1543460523
+8..\src\.\.\Rendering\.\.\Sprites\Dino\dinospriteROM.v
+F..\src\.\.\Rendering\.\.\Sprites\Dino\dinospriteROM.v
 L0 40
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 ndinosprite@r@o@m
+vDinoStateJumpAutomation
+R13
+!i10b 1
+!s100 ><J<kV5Y_H:0n^=8>3FYi0
+IDhEdb48bLTMWV:<kXGTR_3
+R2
+R0
+R26
+R27
+R28
+L0 115
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R10
+R11
+n@dino@state@jump@automation
+vDinoStateJumpAutomationTest
+R13
+!i10b 1
+!s100 mcg2`^lCoENbJZOhPRcRM1
+I=<Yai18bE]<KV5dZ_QTaJ3
+R2
+R0
+R26
+R27
+R28
+L0 225
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R10
+R11
+n@dino@state@jump@automation@test
 vframe_counter_skip1
 R1
 !i10b 1
@@ -270,199 +336,221 @@ R9
 R10
 R11
 vFrameSkipper
-R12
+R13
 !i10b 1
 !s100 5MY5ifWA[UmD[5fJQ2AhY3
-IUd2T]z_hdjN9CcQMAR]DB0
+IPO=o6TU8g3;BKmT:TUbY`0
 R2
 R0
-R13
 R14
 R15
+R16
 L0 36
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@frame@skipper
-vGameColorRenderer
-R12
+vFrameSkipperClkAccurate
+R13
 !i10b 1
-!s100 cFC9zWLh@GLE^=3WT_am`0
-I6Z6lejk=`4XaP8HBkQDZL1
+!s100 0J4YzbFCY?CUFoUW_XHWS3
+II^R9gO@[>EFf`?AB[eMzT2
 R2
 R0
-Z25 w1543442519
-Z26 8..\.\GameRenderer.v
-Z27 F..\.\GameRenderer.v
-L0 34
+R14
+R15
+R16
+Z29 L0 46
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
+!i113 1
+R10
+R11
+n@frame@skipper@clk@accurate
+vGameColorRenderer
+R13
+!i10b 1
+!s100 =5@0RhjfU6V7IP]gRS^8d3
+IYnXJc?55??4o96K[;R3f30
+R2
+R0
+Z30 w1543461426
+Z31 8..\src\.\GameRenderer.v
+Z32 F..\src\.\GameRenderer.v
+L0 73
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
 !i113 1
 R10
 R11
 n@game@color@renderer
 vGameControl
-R12
+R13
 !i10b 1
-!s100 9<<=8@>h75V;_^[M133mc1
-IMf?2`EEE9?:WJ;OKSHLEm1
+!s100 1bf>>@^R3D?b4IRMgmDe?0
+IGTZF[;`_H2nUhL^OYD^Wd1
 R2
 R0
-R22
 R23
 R24
-L0 137
+R25
+L0 83
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@game@control
 vGameImplementation
-R12
+R13
 !i10b 1
-!s100 nO4DoHVPXCo2H5hE8J75V0
-IHd`[_W0YQcW=ZCJ8JQcT;1
+!s100 []kCYaNI7k;6]k6L4@H2z3
+I[a83`E3O;WoD`@CICCI<?2
 R2
 R0
-R22
 R23
 R24
-L0 51
+R25
+L0 61
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@game@implementation
 vGameLogic
-R12
+R13
 !i10b 1
-!s100 bJe7URo?b1XGjE>EVD=o90
-I5Y:aSW^R^g7VLbTfO8JfR1
+!s100 [2Ele477f8IndNmhBgjac0
+ID>n9Ii<63FIPWbcJ5RLkb2
 R2
 R0
-R22
-R23
-R24
-L0 72
-R6
-r1
-!s85 0
-31
-R16
-R17
-R9
-!i113 1
-R10
-R11
-n@game@logic
-vGameMenuRenderer
-R12
-!i10b 1
-!s100 Yk@IC=51d1DabM_@SZ:h=2
-I]b=J]3aecAb:ieUeXL<dH2
-R2
-R0
-Z28 w1543442381
-Z29 8..\.\.\GameStateRenderers.v
-Z30 F..\.\.\GameStateRenderers.v
-R21
-R6
-r1
-!s85 0
-31
-R16
-R17
-R9
-!i113 1
-R10
-R11
-n@game@menu@renderer
-vGameOverRenderer
-R12
-!i10b 1
-!s100 =iCLT6CIQD:[4Wk4gOS^;2
-IGV9f>cKT8Kio<kS?o92<g0
-R2
-R0
-R28
-R29
-R30
-L0 43
-R6
-r1
-!s85 0
-31
-R16
-R17
-R9
-!i113 1
-R10
-R11
-n@game@over@renderer
-vGamePauseRenderer
-R12
-!i10b 1
-!s100 h89PXKLh3>>_D^MDEZFlI3
-IXlI>YAfN7]1of]lJjfIa51
-R2
-R0
-R28
-R29
-R30
-L0 30
-R6
-r1
-!s85 0
-31
-R16
-R17
-R9
-!i113 1
-R10
-R11
-n@game@pause@renderer
-vGamePixelRenderer
-R12
-!i10b 1
-!s100 XInh:`g6M?IY:Z:OE2[hZ0
-IY@>V]zSH>U5E8OcclbbQh2
-R2
-R0
-R25
 R26
 R27
+R28
 L0 4
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
+!i113 1
+R10
+R11
+n@game@logic
+vGameMenuRenderer
+R13
+!i10b 1
+!s100 Yk@IC=51d1DabM_@SZ:h=2
+ITX2eR^00]kQW@OUCZHlHB1
+R2
+R0
+Z33 w1543459946
+Z34 8..\src\.\.\Rendering\GameStateRenderers.v
+Z35 F..\src\.\.\Rendering\GameStateRenderers.v
+L0 17
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R10
+R11
+n@game@menu@renderer
+vGameOverRenderer
+R13
+!i10b 1
+!s100 =iCLT6CIQD:[4Wk4gOS^;2
+IW6UC2XCYkVN^E_ZZl=IaN1
+R2
+R0
+R33
+R34
+R35
+L0 43
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R10
+R11
+n@game@over@renderer
+vGamePauseRenderer
+R13
+!i10b 1
+!s100 h89PXKLh3>>_D^MDEZFlI3
+IWejVNL]l>[^g[;>]A<k5g0
+R2
+R0
+R33
+R34
+R35
+L0 30
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R10
+R11
+n@game@pause@renderer
+vGamePixelRenderer
+R13
+!i10b 1
+!s100 XVZ56N8m`VlkI`V3=Km1m2
+I6hNCVOfLN=YbSWDCMM5Oi2
+R2
+R0
+R30
+R31
+R32
+L0 4
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
 !i113 1
 R10
 R11
@@ -475,8 +563,8 @@ I3[=BJ`^R651XajSJzOg[C2
 R2
 R0
 w1543441239
-R26
-R27
+8..\.\GameRenderer.v
+F..\.\GameRenderer.v
 L0 98
 R6
 r1
@@ -490,89 +578,133 @@ R10
 R11
 n@game@renderer
 vGameRunningRenderer
-R12
+R13
 !i10b 1
 !s100 fCjcRW[EQC`9hgFE^h;7`0
-I4K]oem5aon3S2mFojXOBS1
+I:4oaSdAk:NgeT?b05DzgP3
 R2
 R0
-R28
-R29
-R30
+R33
+R34
+R35
 L0 4
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@game@running@renderer
 vGameScoreCounter
-R12
+R13
 !i10b 1
 !s100 zPa[2OFb@aPeifQifi;Ah3
-Ic8ZRY]_]51AkV?`7SAZi92
+ITT4>6CdbGoZM52@lW<nHk0
 R2
 R0
-Z31 w1543401680
-Z32 8..\.\GameScore.v
-Z33 F..\.\GameScore.v
+Z36 w1543401680
+Z37 8..\src\.\GameScore.v
+Z38 F..\src\.\GameScore.v
 L0 4
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@game@score@counter
 vGameScoreView
-R12
+R13
 !i10b 1
 !s100 L]kSJI`F:3Ib5o::VY4Qe0
-IcTRocj^:31d6dZz:c<cPK2
+IE?Li3@lSPK`fTnJf3=hFZ3
 R2
 R0
-R31
-R32
-R33
+R36
+R37
+R38
 L0 49
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
 n@game@score@view
 vhex_decoder
-R12
+R13
 !i10b 1
-!s100 ^CWNKELji`=X1PPC2_gZg1
-I5<E^36^z3O46;]fdXjl`M0
+!s100 QBhknXOSOb:[aN0QK^bh?1
+IX?f79LU:H3lKRZM:cYio11
 R2
 R0
-R13
 R14
 R15
-L0 48
+R16
+R12
 R6
 r1
 !s85 0
 31
-R16
 R17
-R9
+R18
+R19
 !i113 1
 R10
 R11
+vObsMoverTest
+R13
+!i10b 1
+!s100 k_iE781zPXaCUcRNIRMIf2
+IdcRW2:nI9[bQA>U5b@2ID2
+R2
+R0
+R26
+R27
+R28
+L0 97
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R10
+R11
+n@obs@mover@test
+vTestDinoGame
+R13
+!i10b 1
+!s100 T7l5]<]5Q@5a`4hh;45gQ3
+Ih@0AM^RjL`[>WW8UQOB9Y0
+R2
+R0
+R23
+R24
+R25
+R29
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R10
+R11
+n@test@dino@game
