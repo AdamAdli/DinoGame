@@ -22,6 +22,12 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
     //DinoJumpCounter dinoJumper(.clk(clk), .frameClk(frameClk), .resetn(resetn), .jump(jump), .pause(0), .elevation(elevation));
     DinoStateJumpAutomationTest dinoJumper(.clk(clk), .frameClk(frameClk), .resetn(resetn), .enable(gameState == `GAME_RUNNING), .jump(jump), .pause(0), .elev(elevation));
 
+	 // Pseudo-RNG
+	 wire [3:0] rng_wire;
+	 wire [7:0] new_height;
+	 LFSR4bit rng(.clk(clk), .reset(resetn), .enable(1), .out(rng_wire));
+	 assign new_height = {4'b0000, rng_wire};
+	 
     always @(posedge clk) begin
         if (!resetn || gameState == `GAME_MENU) begin
             dinoY <= `groundTop - `dinoH;
@@ -69,6 +75,15 @@ module GameLogic(input clk, frameClk, resetn, jump, input [3:0] gameState, outpu
                 if (obsClk) begin
                     obs1X <= obs1X - 1;
                     obs2X <= obs2X - 1;
+                end
+
+					 /* Pseudo-Random Number Generation */
+                if (obs1X == 0) begin
+                    obs1H <= `minObsH + rng_wire;
+                end
+					 
+                if (obs2X == 0) begin
+                    obs2H <= `minObsH + rng_wire;
                 end
             end
         end
